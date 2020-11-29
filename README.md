@@ -5,25 +5,25 @@ https://www.kaggle.com/kairosart/machine-learning-for-mental-health-1
 
 **Motivation**
 1. Motivation: 
-  - Use our own functions
-  - Mental health interestng topic for predictions ...
-  - Compare more methods on the same dataset
+    - Use our own functions
+    - Mental health interestng topic for predictions ...
+    - Compare more methods on the same dataset
   
 2. Task: 
-  - Get familiar with the code 
-  - Propose alternative code
+    - Get familiar with the code 
+    - Propose alternative code
 
 **Models** 
 1. Known:
-  - Regression
-  - Classifiers
+    - Regression
+    - Classifiers
 2. Learn one/two among the others methods
 
 **Analysis**
 1. Description of dataset
 2. Benchmark: 
-  - Compare performances of different methods 
-  - Compare built in functions with our own code
+    - Compare performances of different methods 
+    - Compare built in functions with our own code
 
 --------------------
 
