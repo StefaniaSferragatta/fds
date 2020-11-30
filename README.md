@@ -15,6 +15,7 @@ https://www.kaggle.com/kairosart/machine-learning-for-mental-health-1
 
 **Models** 
 1. Known:
+    - Confusion Matrix
     - Regression
     - Classifiers
 2. Learn one/two among the others methods
