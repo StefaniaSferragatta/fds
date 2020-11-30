@@ -4,9 +4,9 @@
 https://www.kaggle.com/kairosart/machine-learning-for-mental-health-1
 
 **Deadlines**
-- 03/12 Project intro \
-- 22/12 Project hand-over \
-- 27/12 Report hand-over \
+- 03/12 Project intro
+- 22/12 Project hand-over
+- 27/12 Report hand-over
 
 ### Slides
 
