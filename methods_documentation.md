@@ -9,9 +9,9 @@ The data obtained are then used for the second level model that makes the final 
 ### Create training data
 The important part here is to create the training data, following this steps:
 (Do this for each part of the training data)
-    1. split the training data into k-folds (like k-folds cross validation);
-    2. a base model is fitted on the k-1 parts and predictions are made for the kth part;
-    3. the base model is then fitted on the whole train dataset to calculate its performance on the test set.
+1. split the training data into k-folds (like k-folds cross validation);
+2. a base model is fitted on the k-1 parts and predictions are made for the kth part;
+3. the base model is then fitted on the whole train dataset to calculate its performance on the test set.
 All the steps are repeated for the other base models. 
 - References: [StackingClassifier - mlxtend (rasbt.github.io)](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier/)
 
