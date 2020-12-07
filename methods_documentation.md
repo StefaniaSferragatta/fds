@@ -2,10 +2,17 @@
 ## Random Forest
 ## Boosting
 ## Stacking
-The Stacking Classifier is an **ensemble method** that combines multiple classification models via a meta-classifier.
+### What is
+The Stacking Classifier is an ensemble method that **combines multiple classification models via a meta-classifier in order to improve predictions**.
+It often considers heterogeneous weak learners because it combine different learning algorithms. 
+
+### Main idea
+Again, the idea of stacking is to **learn several different weak learners** and **combine them** by training a meta-model **to output predictions** based on the multiple predictions returned by these weak models.
+
 ### How to build?
 We work on more than one level model. The first one consists in using the input data of size (m*n) with different ML models. Then take the **prediction** from these models and combine them to form a new matrix of size (m*M) where M is the number of models used. \
 The data obtained are then used for the second level model that makes the final predictions. So basically the features for the 2nd level model are the predictions from the train set. The second level is used to make predictions on the test set.
+
 ### Create training data
 The important part here is to create the training data, following this steps:
 (Do this for each part of the training data)
