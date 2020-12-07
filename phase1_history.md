@@ -9,8 +9,9 @@
 # 07/12
 
 ### Call summary
-- We have talked about the documentation of the methods
-- We have set a new date for the meeting to conclude this part and decide how to divide task for the paramaters optimization.
+- We have all explained the assigned method.
+- We have set a new date for the meeting to conclude this "documentation" part on 10/12 after sds test 
+- For the next call we would like to decide how to divide tasks for the paramaters optimization, code implementation ...
 
 ### Methods 
 Summary on methods is in file *methods_documentation.md*
