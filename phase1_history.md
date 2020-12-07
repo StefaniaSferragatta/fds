@@ -1,4 +1,4 @@
-# 03/12 \
+# 03/12 
 ### Assigniment of methods:
 - Gaurav: Decision Tree Classifier
 - Mert: Random Forests
@@ -13,7 +13,7 @@
 - We have set a new date for the meeting to conclude this part and decide how to divide task for the paramaters optimization.
 
 ### Methods 
-Summary on methods is in file *method_documentation.md*
+Summary on methods is in file *methods_documentation.md*
 
 |Decision trees|Random forest|Stacking |Bagging |Boosting |K-classifier |Neural network|
 |--------------|-------------|----------|-----------|----------|---------|------------|
