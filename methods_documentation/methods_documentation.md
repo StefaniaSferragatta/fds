@@ -40,7 +40,7 @@ Let's review the sketch code trough an example.
 
 We want to predict from the following data if a patient has heart disease:
 
-​												![p1](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p1.jpg) 
+​												![p1](images\pics\p1.jpg) 
 
 Let's apply the code:
 
