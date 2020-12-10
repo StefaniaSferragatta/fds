@@ -19,7 +19,7 @@ When we build an individual decision tree, we use a training data set and all of
 To build a Random Forest we have to train N decision trees. Do we train the trees using the same data all the time? Do we use the whole data set? Nope.
 This is where the first random feature comes in. To train each individual tree, we pick a random sample of the entire Data set, like shown in the following figure.
 
-
+<img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF1.png">
 
 ## Boosting
 
