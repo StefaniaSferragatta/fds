@@ -1,5 +1,26 @@
 ## Tree classifier
 ## Random Forest
+
+In the Machine Learning world, Random Forest models are a kind of non parametric models that can be used both for regression and classification. They are one of the most popular ensemble methods, belonging to the specific category of Bagging methods.
+Ensemble methods involve using many learners to enhance the performance of any single one of them individually. These methods can be described as techniques that use a group of weak learners (those who on average achieve only slightly better results than a random model) together, in order to create a stronger, aggregated one.
+In our case, Random Forests are an ensemble of many individual Decision Trees.
+
+Random Forest models combine the simplicity of Decision Trees with the flexibility and power of an ensemble model. In a forest of trees, we forget about the high variance of an specific tree, and are less concerned about each individual element, so we can grow nicer, larger trees that have more predictive power than a pruned one.
+
+Although Random Forest models don’t offer as much interpret ability as a single tree, their performance is a lot better, and we don’t have to worry so much about perfectly tuning the parameters of the forest as we do with individual trees.
+Okay, I get it, a Random Forest is a collection of individual trees. But why the name Random? Where is the Randomness? Lets find out by learning how a Random Forest model is built.
+
+### Training and Building a Random Forest
+Building a random Forest has 3 main phases. We will break down each of them and clarify each of the concepts and steps. Lets go!
+
+#### Creating a Bootstrapped Data Set for each tree
+When we build an individual decision tree, we use a training data set and all of the observations. This means that if we are not careful, the tree can adjust very well to this training data, and generalise badly to new, unseen observations. To solve this issue, we stop the tree from growing very large, usually at the cost of reducing its performance.
+
+To build a Random Forest we have to train N decision trees. Do we train the trees using the same data all the time? Do we use the whole data set? Nope.
+This is where the first random feature comes in. To train each individual tree, we pick a random sample of the entire Data set, like shown in the following figure.
+
+
+
 ## Boosting
 
 #  Words you must know to read this
