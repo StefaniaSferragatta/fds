@@ -237,7 +237,7 @@ All the steps are repeated for the other base models.
 
 ## Bagging  (Bootstrap Aggregation)
 
-![bagging](https://en.wikipedia.org/wiki/Bootstrap_aggregating#/media/File:Ensemble_Bagging.svg)
+![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
 ### 1. Why?
 Bagging offers the advantage of combining **weak learners to to outdo a single strong learner**. It also helps in the **reduction of variance**, hence **eliminating the over-fitting** of models in the procedure. If the base models trained on different samples have high variance (over-fitting), then the aggregated result would even it out thereby reducing the variance. \
 Bootstrap Aggregation (Bagging), is a simple and very powerful **ensemble method**. An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model. In ensemble algorithms, bagging methods form a class of algorithms which **build several instances of a black-box estimator on random subsets** of the original training set and **then aggregate their individual predictions to form a final prediction**. Bagging methods come in many flavours but mostly differ from each other by the way they draw random subsets of the training set, when **samples are drawn with replacement**.
