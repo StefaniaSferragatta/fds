@@ -21,6 +21,35 @@ This is where the first random feature comes in. To train each individual tree, 
 
 <img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF1.png">
 
+From looking at this figure, various things can be deduced. First of all, the size of the data used to train each individual tree does not have to be the size of the whole data set. Also, a data point can be present more than once in the data used to train a single tree (like in tree nº two).
+This is called Sampling with Replacement or Bootstrapping: each data point is picked randomly from the whole data set, and a data point can be picked more than once.
+By using different samples of data to train each individual tree we reduce one of the main problems that they have: they are very fond of their training data. If we train a forest with a lot of trees and each of them has been trained with different data, we solve this problem. They are all very fond of their training data, but the forest is not fond of any specific data point. This allows us to grow larger individual trees, as we do not care so much anymore for an individual tree overfitting.
+If we use a very small portion of the whole data set to train each individual tree, we increase the randomness of the forest (reducing over-fitting) but usually at the cost of a lower performance.
+In practice, by default most Random Forest implementations (like the one from Scikit-Learn) pick the sample of the training data used for each tree to be the same size as the original data set (however it is not the same data set, remember that we are picking random samples).
+This generally provides a good bias-variance compromise.
+
+#### Train a forest of trees using these random data sets, and add a little more randomness with the feature selection
+If you remember well, for building an individual decision tree, at each node we evaluated a certain metric (like the Gini index, or Information Gain) and picked the feature or variable of the data to go in the node that minimised/maximised this metric.
+This worked decently well when training only one tree, but now we want a whole forest of them! How do we do it? Ensemble models, like Random Forest work best if the individual models (individual trees in our case) are uncorrelated. In Random Forest this is achieved by randomly selecting certain features to evaluate at each node.
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF2.png">
+
+As you can see from the previous image, at each node we evaluate only a subset of all the initial features. For the root node we take into account E, A and F (and F wins). In Node 1 we consider C, G and D (and G wins). Lastly, in Node 2 we consider only A, B, and G (and A wins). We would carry on doing this until we built the whole tree.
+By doing this, we avoid including features that have a very high predictive power in every tree, while creating many un-correlated trees. This is the second sweep of randomness. We do not only use random data, but also random features when building each tree. The greater the tree diversity, the better: we reduce the variance, and get a better performing model.
+
+Repeat this for the N trees to create our awesome forest.
+Awesome, we have learned how to build a single decision tree. Now, we would repeat this for the N trees, randomly selecting on each node of each of the trees which variables enter the contest for being picked as the feature to split on.
+In conclusion, the whole process goes as follows:
+1. Create a bootstrapped data set for each tree.
+2. Create a decision tree using its corresponding data set, but at each node use a random sub sample of variables or features to split on.
+3. Repeat all these three steps hundreds of times to build a massive forest with a wide variety of trees. This variety is what makes a Random Forest way better than a single decision tree.
+Once we have built our forest, we are ready to use it to make awesome predictions. Lets see how!
+
+#### Making predictions using a Random Forest
+Making predictions with a Random Forest is very easy. We just have to take each of our individual trees, pass the observation for which we want to make a prediction through them, get a prediction from every tree (summing up to N predictions) and then obtain an overall, aggregated prediction.
+Bootstrapping the data and then using an aggregate to make a prediction is called Bagging, and how this prediction is made depends on the kind of problem we are facing.
+For regression problems, the aggregate decision is the average of the decisions of every single decision tree. For classification problems, the final prediction is the most frequent prediction done by the forest.
+
 ## Boosting
 
 #  Words you must know to read this
