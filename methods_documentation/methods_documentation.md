@@ -32,7 +32,7 @@ The main idea behind the AdaBoost algorithm is
 
 Here a sketch of the algorithm: 
 
-![p4](images\pics\p4.jpg)
+![](fds/methods_documentation/images/pics/p4.jpg)
 
 #### An example 
 
