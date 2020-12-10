@@ -20,7 +20,7 @@
 
 **Boosting** is an ensemble method. Moreover it is a a family of ML algorithms that are united by the same philosophy: turning weak learners into better learners by building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on. Here an illustrative picture: 
 
-![p3](C:\Users\momor\OneDrive\Desktop\p3.png)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/boost.png"> 
 
 Because it is a family of algorithms we need to focus on one to really get into the details of the implementation, we chose the one used by the author of the project: **AdaBoost** .
 
@@ -32,7 +32,7 @@ The main idea behind the AdaBoost algorithm is
 
 Here a sketch of the algorithm: 
 
-![](fds/methods_documentation/images/pics/p4.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/sketch.jpg"> 
 
 #### An example 
 
@@ -40,13 +40,12 @@ Let's review the sketch code trough an example.
 
 We want to predict from the following data if a patient has heart disease:
 
-​												![p1](images\pics\p1.jpg) 
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p1.jpg"> 
 
 Let's apply the code:
 
 `Define a weight distribution over the examples` $D^1_N = \frac{1}{N}$ `for i = 1,2, ..., N`
-
-![p2](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p2.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p2.jpg"> 
 
 `for round j = 1 to M do `
 
@@ -60,11 +59,11 @@ This part of the code is not really clear in the sketch of the algorithm, becaus
 
 With the data we are considering let's look at some really simple models the *stumps* , i.e. a node with two children, where in the node there is a condition and in the children the predictions if the condition is satisfied or not: 
 
-![p3](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p3.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p3.jpg"> 
 
 And we build models for each feature: *Blocked arteries* and *Patient weights*. As you can see above for each model we count how many correct predictions were made and how many were not: 
 
- ![p4](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p4.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p4.jpg"> 
 
 
 
@@ -72,19 +71,19 @@ Now we choose the model that performed better (i.e. the one that made more corre
 
 Now we calculate the *voting power* $\alpha$ (or *Amount of say*) of the best model trough the following formula (the reason behind this will be more clear below):
 
-![p6](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p6.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p6.jpg"> 
 
-![p7](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p7.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p7.jpg"> 
 
 **Here the main idea of AdaBoost ** : we find the 1 incorrect prediction of the best model and we increase the weight of the sample: 
 
-![p5](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p5.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p5.jpg"> 
 
 Using the formula below: 
 
-![p8](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p8.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p8.jpg"> 
 
-![p9](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p9.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p9.jpg"> 
 
 
 
@@ -92,17 +91,18 @@ Using the formula below:
 
 `Increase weights of examples misclassified by` $h_j$
 
-![p10](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p10.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p10.jpg"> 
 
 `Decrease weights of examples misclassified by` $h_j$
 
-![image-20201210134618501](C:\Users\momor\AppData\Roaming\Typora\typora-user-images\image-20201210134618501.png)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/add.jpg"> 
 
-![p11](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p11.jpg)
+
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p11.jpg"> 
 
 And we are almost done the last part that we need to  do (that it's not specified in the `Sketch of algorithm`) is to normalize all the `new weights` found: 
 
-![p12](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p12.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p12.jpg"> 
 
 And the first iteration is complete. 
 
@@ -110,7 +110,7 @@ And the first iteration is complete.
 
 In the next iteration we will repeat what we have done in this first iteration but with the new weights:
 
- ![p13](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p13.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p13.jpg"> 
 
 
 
@@ -118,7 +118,7 @@ In the next iteration we will repeat what we have done in this first iteration b
 
 For the sake of completeness we will leave here the complete pseudo-code of the AdaBoost algorithm: 
 
-![p14](C:\Users\momor\OneDrive\Desktop\notebooks\boosting\pics\p14.jpg)
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p14.jpg"> 
 
 
 
