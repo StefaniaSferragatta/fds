@@ -237,8 +237,7 @@ All the steps are repeated for the other base models.
 
 ## Bagging  (Bootstrap Aggregation)
 
-<img src="https://github.com/martinabetti-97/fds/images/bagging.png"> 
-
+<img src="https://github.com/martinabetti-97/fds/images/blob/main/methods_documentation/images/pics/bagging.png"> 
 
 ### 1. Why?
 Bagging offers the advantage of combining **weak learners to to outdo a single strong learner**. It also helps in the **reduction of variance**, hence **eliminating the over-fitting** of models in the procedure. If the base models trained on different samples have high variance (over-fitting), then the aggregated result would even it out thereby reducing the variance. \
