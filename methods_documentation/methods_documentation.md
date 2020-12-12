@@ -1,4 +1,19 @@
-## Tree classifier
+# Tree classifier
+## Descision tree 
+  how we implement Formulas for entrpy and ingformaton gain and whole detailed implentation can be founf in post of toward data science
+  
+1)  https://www.geeksforgeeks.org/decision-tree-implementation-python/#:~:text=Entropy%20is%20the%20measure%20of,the%20more%20the%20information%20content.&text=The%20entropy%20typically%20changes%20when,training%20instances%20into%20smaller%20subsets.
+    
+    This is the one which explains everything about descision tree
+2)  https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8
+
+This is the youtube video , Where we can find detail implementation of descision tree
+3) https://www.youtube.com/watch?v=K5QlpAqOtTE
+
+Also we have code which we can mplement from scratch, But as we discussed earlier , We are going to optimize the accuracy of algorithm by hyperparameter optimization.
+
+
+
 ## Random Forest
 
 In the Machine Learning world, Random Forest models are a kind of non parametric models that can be used both for regression and classification. They are one of the most popular ensemble methods, belonging to the specific category of Bagging methods.
