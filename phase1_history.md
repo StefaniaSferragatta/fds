@@ -14,12 +14,7 @@
 - For the next call we would like to decide how to divide tasks for the paramaters optimization, code implementation ...
 
 ### Methods 
-Summary on methods is in file *methods_documentation.md*
-
-|Decision trees|Random forest|Stacking |Bagging |Boosting |K-classifier |Neural network|
-|--------------|-------------|----------|-----------|----------|---------|------------|
-|Post summary|Post summary|Summary available|Summary available|Explain method|Number of clusters in knn|Ignore it|
-|Finish explanation|Comment on no missing data|test metaclassifiers||Post summary| | |
+Summary on methods in *methods_documentation/*
 
 ### New notebook
 - Updated deprecated libraries and functions
@@ -47,6 +42,23 @@ Summary on methods is in file *methods_documentation.md*
 
 #### Select features
 - Martina and Stefania: Pick the most correlated parameters for the analysis
+
+
+|Decision trees|Random forest|Stacking|Bagging |Boosting |Knn| Regression|
+|--------------|-------------|----------|-----------|----------|---------|-----------|
+|Tuning|Tuning|Tuning|Tuning|Tuning|Tuning|Tuning|
+|Cross correlation|Cross correlation|Test metaclassifier|-|-|Cross correlation|Cross correlation|
+|-|-|-|-|-|-|Adapt evaluation|
+
+### Summary on what we have done so far (feel free to add)
+- Updated deprecated libraries and functions
+- Deleted unused functions and neural network analysis
+- Added country happiness index column
+- Changed the list of columns used as parameters for the classification: from random cols to higly correlated cols
+- Adapted our code for regression to this dataset
+- Documentation on all methods
+- Improoved some visualizations
+- Tested random forest with different parameters
 
 ---------------
 
