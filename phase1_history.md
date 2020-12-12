@@ -34,4 +34,26 @@ Summary on methods is in file *methods_documentation.md*
 
 ---------------------------
 # 10/12
-New meewing
+
+### Tasks:
+
+#### Tuning parameters
+- Mert and Gaurav: Random Forest and Tree classifiers
+- Stefania and Martina linear regression and K-neighbors
+- Giacomo ensemble methods 
+
+#### Cross validation
+- Mert, Gaurav,Martina and Stefania: Apply cross correlation on ML methods 
+
+#### Select features
+- Martina and Stefania: Pick the most correlated parameters for the analysis
+
+---------------
+
+# 18/12
+New meeting to discuss final resluts on tuning and decide how to visualize this information
+
+-------------------
+
+# 20-21/12
+Final meeting for the slides
