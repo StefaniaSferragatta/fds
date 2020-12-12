@@ -91,7 +91,7 @@ Because it is a family of algorithms we need to focus on one to really get into 
 
 ### AdaBoost (Adaptive Boosting)
 
-The main idea behind the AdaBoost algorithm is 
+The main idea behind the AdaBoost algorithm is to improve the results found in one round by highlighting the mistakes to the next round. 
 
 #### How does it work? (Outline)  
 
