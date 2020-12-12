@@ -7,7 +7,7 @@
     This is the one which explains everything about descision tree
 2)  https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8
 
-This is the youtube video , Where we can find detail implementation of descision tree
+This is the youtube video , Where we can find detail implementation of descision tree /n
 3) https://www.youtube.com/watch?v=K5QlpAqOtTE
 
 Also we have code which we can mplement from scratch, But as we discussed earlier , We are going to optimize the accuracy of algorithm by hyperparameter optimization.
