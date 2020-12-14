@@ -283,3 +283,23 @@ In scikit-learn, bagging methods are offered as a unified [`BaggingClassifier`](
 ### 5. Useful links
 original article https://link.springer.com/article/10.1023/A:1018054314350 \
 youtube quick guide https://www.youtube.com/watch?v=2Mg8QD0F1dQ
+
+## KNN
+
+The k-Nearest Neighbors algorithm or KNN for short is a very simple technique. The entire
+training dataset is stored. When a prediction is required, the k-most similar records to a
+new record from the training dataset are then located. From these neighbors, a summarized
+prediction is made. \
+The first step needed is to calculate the distance between two rows in a dataset. Rows of data
+are mostly made up of numbers and an easy way to calculate the distance between two rows or
+vectors of numbers is to draw a straight line. \
+Neighbors for a new piece of data in the dataset are the k closest instances, as defined by our
+distance measure. To locate the neighbors for a new piece of data within a dataset we must
+first calculate the distance between each record in the dataset to the new piece of data. We can
+do this using our distance function above. Once distances are calculated, we must sort all of the
+records in the training dataset by their distance to the new data. We can then select the top k
+to return as the most similar neighbors. \
+The most similar neighbors collected from the training dataset can be used to make predictions.
+In the case of classification, we can return the most represented class among the neighbors.
+We can achieve this by performing the max() function on the list of output values from the
+neighbors. 
