@@ -67,7 +67,7 @@ The algorithm works in four steps:
 3. Perform a vote for each predicted result.
 4. Select the prediction result with the most votes as the final prediction.
 
-
+https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF3.png
 
 
 
