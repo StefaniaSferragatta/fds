@@ -8,7 +8,7 @@ We decided to focus on tuning of hyperparameters rather than on implementing fro
 
 The first machine learning method used by the author is Logistic Regression through the sklearn module. This algorithm does not take any hyperparameter in input, hence we could not provide any tuning optimization. However, we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
 First of all we adapt the training set to the required input format, then we add an additional function (coefficients_sgd) in order to get the optimal starting value for the theta parameter (*theta0*). For the learning rate and for the number of epochs to be used in the regression, we initially put into practice what we learned from the previous homework by using the best combination for these two parameters. 
-In order to obtain our final prediction, we want to classify each sample according to the log likelihood obtained with the product of the theta final vector and each sample features. We assume that if the log-likelihood is greater or equal than 0.5, then we classify one sample as "treatment yes", otherwise "treatment no". \newline
+In order to obtain our final prediction, we want to classify each sample according to the log likelihood obtained with the product of the theta final vector and each sample features. We assume that if the log-likelihood is greater or equal than 0.5, then we classify one sample as "treatment yes", otherwise "treatment no". 
 For comparison purposes, we applied the same evaluation methods that the author provide in the "evalModelClass" to our model.  As we can see in the table above, the model produced by our code has an accuracy of 0.74. In general our code performed a bit worse than the built in function in all the evaluation methods. 
 
 |                         | Built-in           | Our code           |
@@ -31,10 +31,10 @@ The main steps of this method are:
 |                       |Built-in           |Our code          |
 |-----------------------|-------------------|------------------|
 |Classification Accuracy| 0.8174603174603174|0.8121693121693122|
-|Classification Error   |0.18253968253968256|0.1878306878306878|
+|Classification Error   | 0.1825396825396825|0.1878306878306878|
 |False Positive Rate    | 0.2774869109947644|0.2774869109947644|
 |Precision              | 0.7633928571428571|0.7612612612612613|
-|AUC Score              | 8184757958395162  |0.8131282022566285|
+|AUC Score              | 0.8184757958395162|0.8131282022566285|
 
 In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
  - k: number of clusters. The optimal k from the author analysis was 21, but since we have changed the set of parameters used for the classification, the new optimal number of clusters in a range from 1 to 31 is 11.
