@@ -308,9 +308,9 @@ For this purpose we used some common metrics and methods for assessing the perfo
 * **Precision of Positive value**: is the proportion of true positives among all the individuals that have been predicted to be "illness-positive" by the model. This represents the accuracy of a predicted positive outcome and is computed as: ```Precision = TruePositives/(TruePositives + FalsePositives)``` ;
 * **ROC curve**: is one of the most used graphical measure for assessing the performance or the accuracy of a classifier, which corresponds to the total proportion of correctly classified observations;
 * **AUC**: is the percentage of the ROC plot that is underneath the curve, it summarizes the overall performance of the classifier, over all possible probability cutoffs. The metric used are:
-        .90-1 = excellent (A)
-        .80-.90 = good (B)
-        .70-.80 = fair (C)
-        .60-.70 = poor (D)
-        .50-.60 = fail (F)
+* .90-1 = excellent (A)
+* .80-.90 = good (B)
+* .70-.80 = fair (C)
+* .60-.70 = poor (D)
+* .50-.60 = fail (F)
 
