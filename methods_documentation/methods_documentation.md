@@ -293,3 +293,5 @@ The resulting predictions are then stacked and provided as input data to the sec
 ### 5. Useful links
 original article https://link.springer.com/article/10.1023/A:1018054314350 \
 youtube quick guide https://www.youtube.com/watch?v=2Mg8QD0F1dQ
+StackingCVClassifier: https://towardsdatascience.com/stacking-classifiers-for-higher-predictive-performance-566f963e4840
+StackingCVClassifier doc: http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier/
