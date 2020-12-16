@@ -69,7 +69,7 @@ The algorithm works in four steps:
 
 <img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF3.png">
 
-
+In this method we have used the same method that author applied but we have improved the result with parameter tuning since the author was generating the result with random parameter. We have applied the 
 
 ## Ensemble methods 
 
