@@ -227,32 +227,19 @@ Let's explain each argument used in the code above:
   Default : 50
 
 
-
-
-
 ## Stacking
-### What is
-The Stacking Classifier is an ensemble method that **combines multiple classification models via a meta-classifier in order to improve predictions**.
-It often considers heterogeneous weak learners because it combine different learning algorithms. 
+The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
+![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png)
 
-### Main idea
-Again, the idea of stacking is to **learn several different weak learners** and **combine them** by training a meta-model **to output predictions** based on the multiple predictions returned by these weak models.
+The image above summarises the process: 
+* Firstly the individual classification models are trained based on the given training set; 
+* Secondly the meta-classifier is fitted based on the outputs (meta-features) of the individual classification models in the ensemble;
+* The output obtained at the end of the process is the final predicion.
 
+In this project the author chose the function from the library ```mlxtend.classifier.StackingClassifier``` to implement the stacking classifier. 
+In order to use this function it's needed to define: the learners to fit and the meta-model that combines them. 
+As classification models to fit, the author chose the KNeighborsClassifier and the RandomForestClassifier whose predictions are combined by Logistic Regression as a meta-classifier. 
 
-<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/Stacking_classifier.jpg"> 
-
-### How to build?
-We work on more than one level model. The first one consists in using the input data of size (m*n) with different ML models. Then take the **prediction** from these models and combine them to form a new matrix of size (m*M) where M is the number of models used. \
-The data obtained are then used for the second level model that makes the final predictions. So basically the features for the 2nd level model are the predictions from the train set. The second level is used to make predictions on the test set.
-
-### Create training data
-The important part here is to create the training data, following this steps:
-(Do this for each part of the training data)
-1. split the training data into k-folds (like k-folds cross validation);
-2. a base model is fitted on the k-1 parts and predictions are made for the kth part;
-3. the base model is then fitted on the whole train dataset to calculate its performance on the test set.
-All the steps are repeated for the other base models. 
-- References: [StackingClassifier - mlxtend (rasbt.github.io)](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier/)
 
 ## Bagging  (Bootstrap Aggregation)
 
