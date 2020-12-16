@@ -226,24 +226,6 @@ Let's explain each argument used in the code above:
 
   Default : 50
 
-
-## Stacking
-The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models. \
-
-
-
-![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png)
-
-The image above summarises the process: 
-* Firstly the individual classification models are trained based on the given training set; 
-* Secondly the meta-classifier is fitted based on the outputs (meta-features) of the individual classification models in the ensemble;
-* The output obtained at the end of the process is the final predicion.
-
-In this project the author chose the function from the library ```mlxtend.classifier.StackingClassifier``` to implement the stacking classifier. 
-In order to use this function it's needed to define: the learners to fit and the meta-model that combines them. 
-As classification models to fit, the author chose the KNeighborsClassifier and the RandomForestClassifier whose predictions are combined by Logistic Regression as a meta-classifier. 
-
-
 ## Bagging  (Bootstrap Aggregation)
 
 ![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
@@ -273,6 +255,40 @@ In scikit-learn, bagging methods are offered as a unified [`BaggingClassifier`](
 - `oob_score=True` estimate the generalization error.
 - `warm_start=True` reuse the solution of the previous call to fit and add more estimators to the ensemble
 - `n_jobs=int` the number of jobs to run in parallel
+
+
+## Stacking
+The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
+
+
+![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png)
+
+The image above summarises the process: 
+* Firstly the individual classification models are trained based on the given training set; 
+* Secondly the meta-classifier is fitted based on the outputs (meta-features) of the individual classification models in the ensemble;
+* The output obtained at the end of the process is the final predicion.
+
+In this project the author chose the function from the library ```mlxtend.classifier.StackingClassifier``` to implement the stacking classifier. 
+In order to use this function it's needed to define: the learners to fit and the meta-model that combines them. 
+As classification models to fit, the author chose the KNeighborsClassifier and the RandomForestClassifier whose predictions are combined by Logistic Regression as a meta-classifier. 
+
+### Stacking using Cross Validation 
+
+If we want to imporve the perfomarce of this last analysis, we can use the ```StackingCVClassifier``` from the same library.
+This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
+
+
+![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png)
+
+
+This method consists in the following steps:
+1. The dataset is split into k folds;
+2. In k successive rounds, k-1 folds are used to fit the first level classifier;
+3. In each round, the first-level classifiers are then applied to the remaining 1 subset that was not used for model fitting in each iteration.
+
+The resulting predictions are then stacked and provided as input data to the second-level classifier. After the training of the StackingCVClassifier, the first-level classifiers are fit to the entire dataset.
+
+
 
 ### 5. Useful links
 original article https://link.springer.com/article/10.1023/A:1018054314350 \
