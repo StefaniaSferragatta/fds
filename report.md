@@ -58,7 +58,16 @@ In order to tune the hyperparameters for the KNN built-in function the parameter
 
 ### 4. Random Forest classifier
 
+The Random Forest classifier technically is an ensemble method (based on the divide-and-conquer approach) of decision trees generated on a randomly split dataset. This collection of decision tree classifiers is also known as the forest. The individual decision trees are generated using an attribute selection indicator such as information gain, gain ratio, and Gini index for each attribute. Each tree depends on an independent random sample. In a classification problem, each tree votes and the most popular class is chosen as the final result. In the case of regression, the average of all the tree outputs is considered as the final result. It is simpler and more powerful compared to the other non-linear classification algorithms.
 
+The algorithm works in four steps:
+
+1. Select random samples from a given dataset.
+2. Construct a decision tree for each sample and get a prediction result from each decision tree.
+3. Perform a vote for each predicted result.
+4. Select the prediction result with the most votes as the final prediction.
+
+![image.png](attachment:image.png)
 
 
 
