@@ -238,6 +238,9 @@ It often considers heterogeneous weak learners because it combine different lear
 ### Main idea
 Again, the idea of stacking is to **learn several different weak learners** and **combine them** by training a meta-model **to output predictions** based on the multiple predictions returned by these weak models.
 
+
+<img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/Stacking_classifier.jpg"> 
+
 ### How to build?
 We work on more than one level model. The first one consists in using the input data of size (m*n) with different ML models. Then take the **prediction** from these models and combine them to form a new matrix of size (m*M) where M is the number of models used. \
 The data obtained are then used for the second level model that makes the final predictions. So basically the features for the 2nd level model are the predictions from the train set. The second level is used to make predictions on the test set.
