@@ -67,7 +67,7 @@ The algorithm works in four steps:
 3. Perform a vote for each predicted result.
 4. Select the prediction result with the most votes as the final prediction.
 
-![image.png](attachment:image.png)
+
 
 
 
