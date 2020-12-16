@@ -109,7 +109,8 @@ We want to predict from the following data if a patient has heart disease:
 
 Let's apply the code:
 
-`Define a weight distribution over the examples` $D^1_N = \frac{1}{N}$ `for i = 1,2, ..., N`
+Define a weight distribution over the examples $D^1_N = \frac{1}{N}$ \
+`for i = 1,2, ..., N`
 <img src="https://github.com/martinabetti-97/fds/blob/jack/methods_documentation/images/pics/p2.jpg"> 
 
 `for round j = 1 to M do `
@@ -118,7 +119,7 @@ Let's apply the code:
 
 `M` is the number of times we will repeat the updating of weights and the feeding them back to the models, what we said here will be explained in more details below.
 
-`Build a model` $h_j$`from the training set using distribution` $D^j$
+`Build a model` $h_j$  `from the training set using distribution` $D^j$
 
 This part of the code is not really clear in the sketch of the algorithm, because what we want is to find between all the weak learners we are considering to improve trough our code, the one that has the best predictive capability. This will be explained in more details in the images below: 
 
