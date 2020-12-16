@@ -289,9 +289,28 @@ This method consists in the following steps:
 The resulting predictions are then stacked and provided as input data to the second-level classifier. After the training of the StackingCVClassifier, the first-level classifiers are fit to the entire dataset.
 
 
-
 ### 5. Useful links
 original article https://link.springer.com/article/10.1023/A:1018054314350 \
-youtube quick guide https://www.youtube.com/watch?v=2Mg8QD0F1dQ
-StackingCVClassifier: https://towardsdatascience.com/stacking-classifiers-for-higher-predictive-performance-566f963e4840
-StackingCVClassifier doc: http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier/
+youtube quick guide https://www.youtube.com/watch?v=2Mg8QD0F1dQ \
+StackingCVClassifier: https://towardsdatascience.com/stacking-classifiers-for-higher-predictive-performance-566f963e4840 \
+StackingCVClassifier doc: http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier/ 
+
+
+## Model Evaluation and Parameter Tuning
+After building the predictive classification models, it's time to evaluate the performances of them.
+
+
+For this purpose we used some common metrics and methods for assessing the performance of predictive classification models, including:
+* **Classification accuracy:** percentage of the correct predictions;
+* **Null accuracy:** accuracy that could be achieved by always predicting the most frequent class;
+* **Confusion matrix:** Table of size 2x2 that describes the performance of a classification model. It's used in order to determine how many observations were correctly or incorrectly classified and it works comparing the observed and the predicted outcome values and showing the number of correct and incorrect predictions categorized by type of outcome. The diagonal elements of the confusion matrix indicate correct predictions, while the off-diagonals represent incorrect predictions; hence the correct classification rate is the sum of the number on the diagonal divided by the sample size in the test data;
+* **False Positive Rate** represents the proportion of identified positives among the healthy individuals (i.e. "illness-negative"). It is calculated as ```1-TrueNegatives/(TrueNegatives + FalseNegatives)```;
+* **Precision of Positive value**: is the proportion of true positives among all the individuals that have been predicted to be "illness-positive" by the model. This represents the accuracy of a predicted positive outcome and is computed as: ```Precision = TruePositives/(TruePositives + FalsePositives)``` ;
+* **ROC curve**: is one of the most used graphical measure for assessing the performance or the accuracy of a classifier, which corresponds to the total proportion of correctly classified observations;
+* **AUC**: is the percentage of the ROC plot that is underneath the curve, it summarizes the overall performance of the classifier, over all possible probability cutoffs. The metric used are:
+        .90-1 = excellent (A)
+        .80-.90 = good (B)
+        .70-.80 = fair (C)
+        .60-.70 = poor (D)
+        .50-.60 = fail (F)
+
