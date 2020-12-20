@@ -98,7 +98,7 @@ As classification models to fit, the author chose the KNeighborsClassifier and t
 
 #### Stacking using Cross Validation 
 
-We tried to imporve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
+We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
 
 
