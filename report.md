@@ -45,7 +45,7 @@ The main steps of this method are:
 |AUC Score              | 0.8184757958395162|0.8131282022566285|
 
 In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
- - k: number of clusters. The optimal k from the author analysis was 21, but since we have changed the set of parameters used for the classification, the new optimal number of clusters in a range from 1 to 31 is 11.
+ - k: number of clusters. The optimal k from the author analysis was 21, but since we have changed the set of parameters used for the classification, the new optimal number of clusters in a range from 1 to 31 is 14.
  - weight_options: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
  - distance_options: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
 
@@ -96,9 +96,25 @@ In order to use this function it's needed to define: the learners to fit and the
 As classification models to fit, the author chose the KNeighborsClassifier and the RandomForestClassifier whose predictions are combined by Logistic Regression as a meta-classifier. 
 
 
+#### Stacking using Cross Validation 
+
+We tried to imporve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
+This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
+
+
+![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png)
+
+
+This method consists in the following steps:
+1. The dataset is split into k folds;
+2. In k successive rounds, k-1 folds are used to fit the first level classifier;
+3. In each round, the first-level classifiers are then applied to the remaining 1 subset that was not used for model fitting in each iteration.
+
+The resulting predictions are then stacked and provided as input data to the second-level classifier. After the training of the StackingCVClassifier, the first-level classifiers are fit to the entire dataset.
+
+
 ## Model Evaluation and Parameter Tuning
-After building the predictive classification models, 
-it's time to evaluate the performances of them.
+After building the predictive classification models, it's time to evaluate the performances of them.
 
 For this purpose we used some common metrics and methods for assessing the performance of predictive classification models, including:
 * **Classification accuracy:** percentage of the correct predictions;
