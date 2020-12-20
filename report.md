@@ -129,6 +129,6 @@ For this purpose we used some common metrics and methods for assessing the perfo
     - .70-.80 = fair (C)
     - .60-.70 = poor (D)
     - .50-.60 = fail (F)
-
+* **Probability plots** 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Conclusion
