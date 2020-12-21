@@ -10,11 +10,22 @@
 ### Introduction
 We decided to focus on tuning of hyperparameters rather than on implementing from scratch each method.
 
+## Data pre-processing
+
+
 ## Evaluating models 
 
 ### 1. Logistic regression classifier
 
-The first machine learning method used by the author is Logistic Regression through the sklearn module. This algorithm does not take any hyperparameter in input, hence we could not provide any tuning optimization. However, we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
+The first machine learning method used by the author is Logistic Regression through the sklearn module. \ 
+This algorithm takes many hyperparameters in input here we list the ones we tested with tuning:
+- *Solver*: this parameter determine which method will be used for regression among Lbfgs, Newton, Liblinear, Sag and Saga. The best accuracy was obtained with the newton method.
+- *Penalty*: this parameter sets the normalization used in the penalization; for each method we usually have one penalization type but in many cases the best results is obtained with no penalty, as in our case.
+
+*add something on performances*
+
+#### Our implementation
+Additionally we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
 First of all we adapt the training set to the required input format, then we add an additional function (coefficients_sgd) in order to get the optimal starting value for the theta parameter (*theta0*). For the learning rate and for the number of epochs to be used in the regression, we initially put into practice what we learned from the previous homework by using the best combination for these two parameters. 
 In order to obtain our final prediction, we want to classify each sample according to the log likelihood obtained with the product of the theta final vector and each sample features. We assume that if the log-likelihood is greater or equal than 0.5, then we classify one sample as "treatment yes", otherwise "treatment no". 
 For comparison purposes, we applied the same evaluation methods that the author provide in the "evalModelClass" to our model.  As we can see in the table above, the model produced by our code has an accuracy of 0.74. In general our code performed a bit worse than the built in function in all the evaluation methods. 
@@ -30,7 +41,16 @@ For comparison purposes, we applied the same evaluation methods that the author 
 
 ### 2. KNeighbors classifier
 The k-Nearest Neighbors is an algorithm that works on the entire training dataset, but when a prediction is required the k-most similar records to a new record are located and used for the prediction.
-The main steps of this method are:
+
+In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
+ - *k*: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15.
+ - *weight_options*: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
+ - *distance_options*: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
+ 
+*add something on performances*
+
+#### Our implementations
+As for logistic regression we implemented this function by ourself, we review the main steps:
 1. We calculate the euclidean distance between two rows in a dataset, where the rows are mostly made up of numbers;
 2. The neighbors for a row in the test set are the k closest instances, as defined by our distance measure;
 3. We sort all of the records in the training dataset by their distance to the new row;
@@ -43,11 +63,6 @@ The main steps of this method are:
 |False Positive Rate    | 0.2774869109947644|0.2774869109947644|
 |Precision              | 0.7633928571428571|0.7612612612612613|
 |AUC Score              | 0.8184757958395162|0.8131282022566285|
-
-In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
- - k: number of clusters. The optimal k from the author analysis was 21, but since we have changed the set of parameters used for the classification, the new optimal number of clusters in a range from 1 to 31 is 14.
- - weight_options: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
- - distance_options: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
 
 
 ### 3. Decision Tree classifier
@@ -72,9 +87,19 @@ The algorithm works in four steps:
 In this method we have used the same method that author applied but we have improved the result with parameter tuning since the author was generating the result with random parameter. We have applied the 
 
 ## Ensemble methods 
-
+An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
 ### 1. Bagging 
+Bootstrap Aggregation (Bagging), is a simple and very powerful ensemble method. Bagging methods form a class of algorithms which build several instances of a black-box estimator on random subsets of the original training set and then aggregate their individual predictions to form a final prediction. These methods come in many flavours but mostly differ from each other by the way they draw random subsets of the training set, when samples are drawn with replacement. \
+Bagging offers the advantage of combining weak learners to to outdo a single strong learner. It also helps in the reduction of variance, hence eliminating the over-fitting of models in the procedure. If the base models trained on different samples have high variance (over-fitting), then the aggregated result would even it out thereby reducing the variance. This technique is chosen when the base models have high variance and low bias which is generally the case with models having high degrees of freedom for complex data. As they provide a way to reduce over-fitting, bagging methods work best with strong and complex models (e.g., fully developed decision trees), in contrast with boosting methods which usually work best with weak models (e.g., shallow decision trees). \
+
+![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
+
+Which hyperparameters should be used?
+- Bootstrap Replicates: the original article for bagging reports that "we are getting most of the improvement using only 10 bootstrap replicates. More than 25 bootstrap replicates is love’s labor lost". We can hence assume that 10 replicates is a fair compromise between accuracy and efficiency.
+- Learning set size: the same article we just mentioned suggests to use a size for the learning set as big as the initial learning set.
+ 
+The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
  
 ### 2. Boosting 
