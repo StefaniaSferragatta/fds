@@ -7,12 +7,13 @@
 
 ---------------------------------------------------------------------------------------------------------------
 
-### Introduction
-We decided to focus on tuning of hyperparameters rather than on implementing from scratch each method.
+## Introduction
+
+#### Dataset
+
+#### Goals
 
 ## Data pre-processing
-
-What happens with different parameters? 
 
 ## Evaluating models 
 
