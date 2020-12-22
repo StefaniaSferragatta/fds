@@ -53,8 +53,6 @@ This is how the raw dataset looked like:
 - Encoding: Different encoding strategies were implemented for each parameter, for some parameters (e.g. Gender) all the possible answers were collected and manually identified as one of these three categories *male*, *female* and *trans*. For other categorical variables whith a reduced ammunt of variability (e.g. 4 possible values), those categorical paramters were converted to numeric ones with a range equal to the number of options. 
 - Normalizaton: Finally we have normalized numerical data with the min-max method and scaled it when needed.
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/processed.png">
-
 #### Feature selection
 
 In order to evaluate how the number and the quality of the features influence the accuracy of the prediction we will try three different approaches:
