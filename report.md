@@ -12,6 +12,7 @@ We decided to focus on tuning of hyperparameters rather than on implementing fro
 
 ## Data pre-processing
 
+What happens with different parameters? 
 
 ## Evaluating models 
 
@@ -67,9 +68,11 @@ As for logistic regression we implemented this function by ourself, we review th
 
 ### 3. Decision Tree classifier
 
+Documentation here
 
+#### Parameters
 
-
+Parameters explanation here
 
 ### 4. Random Forest classifier
 
@@ -86,6 +89,10 @@ The algorithm works in four steps:
 
 In this method we have used the same method that author applied but we have improved the result with parameter tuning since the author was generating the result with random parameter. We have applied the 
 
+#### Parameters
+
+Parameters explanation here
+
 ## Ensemble methods 
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
@@ -95,7 +102,7 @@ Bagging offers the advantage of combining weak learners to to outdo a single str
 
 ![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
 
-Which hyperparameters should be used?
+#### Parameters
 - Bootstrap Replicates: the original article for bagging reports that "we are getting most of the improvement using only 10 bootstrap replicates. More than 25 bootstrap replicates is love’s labor lost". We can hence assume that 10 replicates is a fair compromise between accuracy and efficiency.
 - Learning set size: the same article we just mentioned suggests to use a size for the learning set as big as the initial learning set.
  
@@ -104,6 +111,11 @@ The significant advantage of bagging is that it can be parallelised. As the diff
  
 ### 2. Boosting 
 
+Documentation here
+
+#### Parameters
+
+Parameters explanation here
 
 ### 3. Stacking
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
@@ -155,5 +167,15 @@ For this purpose we used some common metrics and methods for assessing the perfo
     - .60-.70 = poor (D)
     - .50-.60 = fail (F)
 * **Probability plots** 
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Conclusion
+## Conclusions
+
+#### Methods
+
+#### Tuning
+
+#### Cross validation
+
+
