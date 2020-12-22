@@ -41,20 +41,19 @@ Broady speaking, the final goal of the analysis is that of predicting if one has
 One aspect that we appreciated about this analysis is related to the ammount of different methods that are used to make the prediction. In our coursework we have encountered some of these methods, like Logistic Regression and KNN; for this final project we wanted to deal with different approaches in order to gain a deeper knowledge on the many possibilities that are available when dealing with machine learning. We know from the course that not only different ML algortihms can produce different results, but also one single algorithm can produce extremely different predictions when using different parameters. Therefore one of our main goal will be that of testing many approaches that the author has not included in the analysis and see how predictions differ in accuracy. \
 A second aspect that we found interesting about this analysis is learning how to approach data preprocessing when variables are qualitative rather than quantitaive. We will explore and comment the author choises in data encoding. 
 
-
 ## Data pre-processing
 
 #### Filtering and encoding
 
 This is how the raw dataset looked like:
 
-> img
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/raw.png">
 
 - Missing data: As a first step the columns `Timestamp`,`state` and `comments` are removed, since these had a high proportion of missing data that could not be retrieved or infered in anyway. The author also decided to remove the `country` parameter, instead we thought that a possible way to retrive some quantitative information from this paramater was to consult additional data from https://stats.oecd.org/Index.aspx?DataSetCode=BLI and sobstitute the name of the country with the esitamated life satisfaction level for that country. For other parameters such as `work_interfer` missing data was converted to the answer "don't know", while in the case of binary answers when one of the two options was extremely rare (e.g. `self_empolyed` = 'yes'), missing value were considered to be the most common answer.
 - Encoding: Different encoding strategies were implemented for each parameter, for some parameters (e.g. Gender) all the possible answers were collected and manually identified as one of these three categories *male*, *female* and *trans*. For other categorical variables whith a reduced ammunt of variability (e.g. 4 possible values), those categorical paramters were converted to numeric ones with a range equal to the number of options. 
 - Normalizaton: Finally we have normalized numerical data with the min-max method and scaled it when needed.
 
-> img 
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/processed.png">
 
 #### Feature selection
 
@@ -64,7 +63,8 @@ In order to evaluate how the number and the quality of the features influence th
 
 2. Random selection: randomly select some of the features 
 
-3. Selection based on correlation matrix: select features above a certain correlation coefficient with the parameter of interest (treatment)
+3. Selection based on correlation matrix: select features above a certain correlation coefficient with the parameter of interest (treatment). We report the correlation matrix down below.
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/corr_matrix.png">
 
 We will repeat the analysis for all these three set of features and compare them.
 
