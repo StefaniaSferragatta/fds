@@ -46,21 +46,31 @@ A second aspect that we found interesting about this analysis is learning how to
 
 #### Filtering and encoding
 
-Among the parameters that we have mentioned in the introduction some are quantitative while some others are qualitative. Let's see how they have been encoded in more datails:
+This is how the raw dataset looked like:
 
-> comments on encoding and normalization 
+> img
+
+- Missing data: As a first step the columns `Timestamp`,`state` and `comments` are removed, since these had a high proportion of missing data that could not be retrieved or infered in anyway. The author also decided to remove the `country` parameter, instead we thought that a possible way to retrive some quantitative information from this paramater was to consult additional data from https://stats.oecd.org/Index.aspx?DataSetCode=BLI and sobstitute the name of the country with the esitamated life satisfaction level for that country. For other parameters such as `work_interfer` missing data was converted to the answer "don't know", while in the case of binary answers when one of the two options was extremely rare (e.g. `self_empolyed` = 'yes'), missing value were considered to be the most common answer.
+- Encoding: Different encoding strategies were implemented for each parameter, for some parameters (e.g. Gender) all the possible answers were collected and manually identified as one of these three categories *male*, *female* and *trans*. For other categorical variables whith a reduced ammunt of variability (e.g. 4 possible values), those categorical paramters were converted to numeric ones with a range equal to the number of options. 
+- Normalizaton: Finally we have normalized numerical data with the min-max method and scaled it when needed.
+
+> img 
 
 #### Feature selection
 
 In order to evaluate how the number and the quality of the features influence the accuracy of the prediction we will try three different approaches:
 
-1. No selection: keep all the 25 features 
+1. No selection: keep all features 
 
 2. Random selection: randomly select some of the features 
 
 3. Selection based on correlation matrix: select features above a certain correlation coefficient with the parameter of interest (treatment)
 
 We will repeat the analysis for all these three set of features and compare them.
+
+#### Test and Training
+The aouthor chose the classical approach of splitting X (parameters) and y (binary prediciton vector) into training and testing sets selecting at random the 30% of the rows and assigning them to the test set. The remaining number of rows will be used for training.
+
 
 ## ML Algorithms 
 
@@ -209,7 +219,9 @@ For this purpose we used some common metrics and methods for assessing the perfo
     - .70-.80 = fair (C)
     - .60-.70 = poor (D)
     - .50-.60 = fail (F)
-* **Probability plots**: for each method we plot the histogram of the predicted probabilities for class 1. We obtain this information by using the ```method model.predict_proba(X_test)[:, 1]``` where the index refers to the probability that the data belong to class 1 (that means 'treatment yes').
+* **Probability plots** 
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Results
 
