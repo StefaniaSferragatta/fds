@@ -219,7 +219,7 @@ For this purpose we used some common metrics and methods for assessing the perfo
     - .70-.80 = fair (C)
     - .60-.70 = poor (D)
     - .50-.60 = fail (F)
-* **Probability plots** 
+* **Probability plots**: for each method we plot the histogram of the predicted probabilities for class 1. We obtain this information by using the ```method model.predict_proba(X_test)[:, 1]``` where the index refers to the probability that the data belong to class 1 (that means 'treatment yes').
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
