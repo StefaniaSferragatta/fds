@@ -1,7 +1,4 @@
-
-## Report final project 
-
-# Project Title: Predictors of mental health illness
+# Predictors of mental health illness
 
 ## Team members: Martina Betti, Giacomo Ruà, Gaurav Ramse, Stefania Sferragatta, Mert Yildiz
 
@@ -10,35 +7,34 @@
 ## Introduction
 
 #### Dataset
-For our analytical project we toke as a reference an existing kaggle analysis. The dataset used by the author is a 2016 survey done by *OSMI menthal health in thech survey*. With over 1400 responses, the 2016 survey aims to measure attitudes towards mental health in the tech workplace, and examine the frequency of mental health disorders among tech workers. \ 
-The dataset has 1443 rows, corresponding to the number of people interviewed, and the parameters are the following: 
-    1. Timestamp
-    2. Age
-    3. Gender
-    4. Country
-    5. State: If you live in the United States, which state or territory do you live in?
-    6. self_employed: Are you self-employed?
-    7. family_history: Do you have a family history of mental illness?
-    8. treatment: Have you sought treatment for a mental health condition?
-    9. work_interfere: If you have a mental health condition, do you feel that it interferes with your work?
-    10. no_employees: How many employees does your company or organization have?
-    11. remote_work: Do you work remotely (outside of an office) at least 50% of the time?
-    12. tech_company: Is your employer primarily a tech company/organization?
-    13. benefits: Does your employer provide mental health benefits?
-    14. care_options: Do you know the options for mental health care your employer provides?
-    15. wellness_program: Has your employer ever discussed mental health as part of an employee wellness program?
-    16. seek_help: Does your employer provide resources to learn more about mental health issues and how to seek help?
-    17. anonymity: Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources?
-    18. leave: How easy is it for you to take medical leave for a mental health condition?
-    19. mentalhealthconsequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
-    20. physhealthconsequence: Do you think that discussing a physical health issue with your employer would have negative consequences?
-    21. coworkers: Would you be willing to discuss a mental health issue with your coworkers?
-    22. supervisor: Would you be willing to discuss a mental health issue with your direct supervisor(s)?
-    23. mentalhealthinterview: Would you bring up a mental health issue with a potential employer in an interview?
-    24. physhealthinterview: Would you bring up a physical health issue with a potential employer in an interview?
-    25. mentalvsphysical: Do you feel that your employer takes mental health as seriously as physical health?
-    26. obs_consequence: Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?
-    27. comments: Any additional notes or comments
+For our analytical project we toke as a reference an existing kaggle analysis. The dataset used by the author is a 2016 survey done by *OSMI menthal health in thech survey*. With over 1400 responses, the 2016 survey aims to measure attitudes towards mental health in the tech workplace, and examine the frequency of mental health disorders among tech workers. The dataset has 1443 rows, corresponding to the number of people interviewed, and the parameters are the following: \ 
+    1. Timestamp \
+    2. Age \
+    3. Gender \
+    4. Country \
+    5. State: If you live in the United States, which state or territory do you live in? \
+    6. self_employed: Are you self-employed? \
+    7. family_history: Do you have a family history of mental illness? \
+    8. treatment: Have you sought treatment for a mental health condition? \
+    9. work_interfere: If you have a mental health condition, do you feel that it interferes with your work? \
+    10. no_employees: How many employees does your company or organization have? \
+    11. remote_work: Do you work remotely (outside of an office) at least 50% of the time? \
+    12. tech_company: Is your employer primarily a tech company/organization? \
+    13. benefits: Does your employer provide mental health benefits? \
+    14. care_options: Do you know the options for mental health care your employer provides? \
+    15. wellness_program: Has your employer ever discussed mental health as part of an employee wellness program? \
+    16. seek_help: Does your employer provide resources to learn more about mental health issues and how to seek help? \
+    17. anonymity: Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources? \
+    18. leave: How easy is it for you to take medical leave for a mental health condition? \
+    19. mentalhealthconsequence: Do you think that discussing a mental health issue with your employer would have negative consequences? \
+    20. physhealthconsequence: Do you think that discussing a physical health issue with your employer would have negative consequences? \
+    21. coworkers: Would you be willing to discuss a mental health issue with your coworkers? \
+    22. supervisor: Would you be willing to discuss a mental health issue with your direct supervisor(s)? \
+    23. mentalhealthinterview: Would you bring up a mental health issue with a potential employer in an interview? \
+    24. physhealthinterview: Would you bring up a physical health issue with a potential employer in an interview? \
+    25. mentalvsphysical: Do you feel that your employer takes mental health as seriously as physical health? \
+    26. obs_consequence: Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace? \ 
+    27. comments: Any additional notes or comments \
     
 #### Goals
 Broady speaking, the final goal of the analysis is that of predicting if one has sought treatment for a mental health condition, but in reality we mainly want to go behond the prediction itself and analyze in depths all the choises taken by the author. As a matter of fact, we picked this analysis for many different reasons that we will briefly introduce. \
@@ -52,7 +48,7 @@ A second aspect that we found interesting about this analysis is learning how to
 
 Among the parameters that we have mentioned in the introduction some are quantitative while some others are qualitative. Let's see how they have been encoded in more datails:
 
->>> comments on encoding and normalization 
+> comments on encoding and normalization 
 
 #### Feature selection
 
@@ -74,8 +70,6 @@ The first machine learning method used by the author is Logistic Regression thro
 This algorithm takes many hyperparameters in input here we list the ones we tested with tuning:
 - *Solver*: this parameter determine which method will be used for regression among Lbfgs, Newton, Liblinear, Sag and Saga. The best accuracy was obtained with the newton method.
 - *Penalty*: this parameter sets the normalization used in the penalization; for each method we usually have one penalization type but in many cases the best results is obtained with no penalty, as in our case.
-
->>> add something on performances
 
 #### Our implementation
 Additionally we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
@@ -100,8 +94,6 @@ In order to tune the hyperparameters for the KNN built-in function the parameter
  - *weight_options*: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
  - *distance_options*: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
  
->>> add something on performances
-
 #### Our implementation
 As for logistic regression we implemented this function by ourself, we review the main steps:
 1. We calculate the euclidean distance between two rows in a dataset, where the rows are mostly made up of numbers;
