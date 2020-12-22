@@ -34,12 +34,12 @@ For our analytical project we toke as a reference an existing kaggle analysis. T
     24. physhealthinterview: Would you bring up a physical health issue with a potential employer in an interview? \
     25. mentalvsphysical: Do you feel that your employer takes mental health as seriously as physical health? \
     26. obs_consequence: Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace? \ 
-    27. comments: Any additional notes or comments \
+    27. comments: Any additional notes or comments 
     
 #### Goals
 Broady speaking, the final goal of the analysis is that of predicting if one has sought treatment for a mental health condition, but in reality we mainly want to go behond the prediction itself and analyze in depths all the choises taken by the author. As a matter of fact, we picked this analysis for many different reasons that we will briefly introduce. \
 One aspect that we appreciated about this analysis is related to the ammount of different methods that are used to make the prediction. In our coursework we have encountered some of these methods, like Logistic Regression and KNN; for this final project we wanted to deal with different approaches in order to gain a deeper knowledge on the many possibilities that are available when dealing with machine learning. We know from the course that not only different ML algortihms can produce different results, but also one single algorithm can produce extremely different predictions when using different parameters. Therefore one of our main goal will be that of testing many approaches that the author has not included in the analysis and see how predictions differ in accuracy. \
-A second aspect that we found interesting about this analysis is learning how to approach data preprocessing when variables are qualitative rather than quantitaive. We will explore and comment the author choises in data encoding. \
+A second aspect that we found interesting about this analysis is learning how to approach data preprocessing when variables are qualitative rather than quantitaive. We will explore and comment the author choises in data encoding. 
 
 
 ## Data pre-processing
@@ -62,14 +62,14 @@ In order to evaluate how the number and the quality of the features influence th
 
 We will repeat the analysis for all these three set of features and compare them.
 
-## Models 
+## ML Algorithms 
 
 ### 1. Logistic regression classifier
 
 The first machine learning method used by the author is Logistic Regression through the sklearn module. \ 
 This algorithm takes many hyperparameters in input here we list the ones we tested with tuning:
-- *Solver*: this parameter determine which method will be used for regression among Lbfgs, Newton, Liblinear, Sag and Saga. The best accuracy was obtained with the newton method.
-- *Penalty*: this parameter sets the normalization used in the penalization; for each method we usually have one penalization type but in many cases the best results is obtained with no penalty, as in our case.
+- `Solver`: this parameter determine which method will be used for regression among Lbfgs, Newton, Liblinear, Sag and Saga. The best accuracy was obtained with the newton method.
+- `Penalty`: this parameter sets the normalization used in the penalization; for each method we usually have one penalization type but in many cases the best results is obtained with no penalty, as in our case.
 
 #### Our implementation
 Additionally we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
@@ -90,9 +90,9 @@ For comparison purposes, we applied the same evaluation methods that the author 
 The k-Nearest Neighbors is an algorithm that works on the entire training dataset, but when a prediction is required the k-most similar records to a new record are located and used for the prediction.
 
 In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
- - *k*: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15.
- - *weight_options*: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
- - *distance_options*: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
+ - `k`: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15.
+ - `weight_options`: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
+ - `distance_options`: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
  
 #### Our implementation
 As for logistic regression we implemented this function by ourself, we review the main steps:
