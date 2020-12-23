@@ -8,8 +8,8 @@
 ## Introduction
 
 #### Dataset
-For our analytical project we toke as a reference an existing kaggle analysis. The dataset used by the author is a 2016 survey done by *OSMI menthal health in thech survey*. With over 1400 responses, the 2016 survey aims to measure attitudes towards mental health in the tech workplace, and examine the frequency of mental health disorders among tech workers. The dataset has 1443 rows, corresponding to the number of people interviewed, and the parameters are the following: \ 
-    1. Timestamp \
+For our analytical project we toke as a reference an existing kaggle analysis. The dataset used by the author is a 2016 survey done by *OSMI menthal health in thech survey*. With over 1400 responses, the 2016 survey aims to measure attitudes towards mental health in the tech workplace, and examine the frequency of mental health disorders among tech workers. The dataset has 1443 rows, corresponding to the number of people interviewed, and the parameters are the following: \
+1. Timestamp \
     2. Age \
     3. Gender \
     4. Country \
