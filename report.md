@@ -1,6 +1,7 @@
-# Predictors of mental health illness
+# Predictors of mental health illness - Report
 
-## Team members: Martina Betti, Giacomo Ruà, Gaurav Ramse, Stefania Sferragatta, Mert Yildiz
+### Team members: 
+#### Martina Betti,  Gaurav Ramse, Giacomo Ruà, Stefania Sferragatta, Mert Yildiz
 
 ---------------------------------------------------------------------------------------------------------------
 
