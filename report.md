@@ -70,6 +70,23 @@ We will repeat the analysis for all these three set of features and compare them
 #### Test and Training
 The aouthor chose the classical approach of splitting X (parameters) and y (binary prediciton vector) into training and testing sets selecting at random the 30% of the rows and assigning them to the test set. The remaining number of rows will be used for training.
 
+## Evaluation of the classification models
+After building the predictive classification models, it's time to evaluate the performances of them.
+
+For this purpose we used some common metrics and methods for assessing the performance of predictive classification models, including:
+* **Classification accuracy:** percentage of the correct predictions;
+* **Null accuracy:** accuracy that could be achieved by always predicting the most frequent class;
+* **Confusion matrix:** Table of size 2x2 that describes the performance of a classification model. It's used in order to determine how many observations were correctly or incorrectly classified and it works comparing the observed and the predicted outcome values and showing the number of correct and incorrect predictions categorized by type of outcome. The diagonal elements of the confusion matrix indicate correct predictions, while the off-diagonals represent incorrect predictions; hence the correct classification rate is the sum of the number on the diagonal divided by the sample size in the test data;
+* **False Positive Rate** represents the proportion of identified positives among the healthy individuals (i.e. "illness-negative"). It is calculated as ```1-TrueNegatives/(TrueNegatives + FalseNegatives)```;
+* **Precision of Positive value**: is the proportion of true positives among all the individuals that have been predicted to be "illness-positive" by the model. This represents the accuracy of a predicted positive outcome and is computed as: ```Precision = TruePositives/(TruePositives + FalsePositives)``` ;
+* **ROC curve**: is one of the most used graphical measure for assessing the performance or the accuracy of a classifier, which corresponds to the total proportion of correctly classified observations;
+* **AUC**: is the percentage of the ROC plot that is underneath the curve, it summarizes the overall performance of the classifier, over all possible probability cutoffs. The metric used are:
+    - .90-1 = excellent (A)
+    - .80-.90 = good (B)
+    - .70-.80 = fair (C)
+    - .60-.70 = poor (D)
+    - .50-.60 = fail (F)
+* **Probability plots**: for each method we plot the histogram of the predicted probabilities for class 1. We obtain this information by using the ```method model.predict_proba(X_test)[:, 1]``` where the index refers to the probability that the data belong to class 1 (that means 'treatment yes').
 
 ## ML Algorithms 
 
@@ -80,28 +97,43 @@ This algorithm takes many hyperparameters in input here we list the ones we test
 - `Solver`: this parameter determine which method will be used for regression among Lbfgs, Newton, Liblinear, Sag and Saga. The best accuracy was obtained with the newton method.
 - `Penalty`: this parameter sets the normalization used in the penalization; for each method we usually have one penalization type but in many cases the best results is obtained with no penalty, as in our case.
 
+#### Evaluation
+
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/confusion_lr.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/probabilities_lr.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/roc_lr.png">
+
 #### Our implementation
 Additionally we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
 First of all we adapt the training set to the required input format, then we add an additional function (coefficients_sgd) in order to get the optimal starting value for the theta parameter (*theta0*). For the learning rate and for the number of epochs to be used in the regression, we initially put into practice what we learned from the previous homework by using the best combination for these two parameters. 
 In order to obtain our final prediction, we want to classify each sample according to the log likelihood obtained with the product of the theta final vector and each sample features. We assume that if the log-likelihood is greater or equal than 0.5, then we classify one sample as "treatment yes", otherwise "treatment no". 
 For comparison purposes, we applied the same evaluation methods that the author provide in the "evalModelClass" to our model.  As we can see in the table above, the model produced by our code has an accuracy of 0.74. In general our code performed a bit worse than the built in function in all the evaluation methods. 
 
-|                         | Built-in           | Our code           |
-| ----------------------- | ------------------ | ------------------ |
-| ClassificationmAccuracy | 0.7936507936507936 | 0.7433862433862434 |
-| Classification Error    | 0.2063492063492064 | 0.2566137566137566 |
-| False Positive Rate     | 0.2617801047120419 | 0.2931937172774869 |
-| Precision               | 0.7942436374835513 | 0.7437774729120586 |
-| AUC score               | 0.7942436374835513 | 0.7437774729120586 |
+|                         | Built-in | Our code |
+| ----------------------- | -------- | -------- |
+| Classification Accuracy | 0.794    | 0.743    |
+| False Positive Rate     | 0.262    | 0.293    |
+| Precision               | 0.761    | 0.743    |
+| AUC score               | 0.794    | 0.743    |
 
 
 ### 2. KNeighbors classifier
 The k-Nearest Neighbors is an algorithm that works on the entire training dataset, but when a prediction is required the k-most similar records to a new record are located and used for the prediction.
 
 In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
- - `k`: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15.
+ - `k`: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15 as it is shown in the graph below.
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn.png">
+
  - `weight_options`: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
  - `distance_options`: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
+ 
+#### Evaluation
+
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/confusion_knn.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/probabilities_knn.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/roc_knn.png">
  
 #### Our implementation
 As for logistic regression we implemented this function by ourself, we review the main steps:
@@ -110,13 +142,12 @@ As for logistic regression we implemented this function by ourself, we review th
 3. We sort all of the records in the training dataset by their distance to the new row;
 4. We select the top k to return as the most similar neighbors. In the case of classification, we can return the most represented class among the neighbors.
 
-|                       |Built-in           |Our code          |
-|-----------------------|-------------------|------------------|
-|Classification Accuracy| 0.8174603174603174|0.8121693121693122|
-|Classification Error   | 0.1825396825396825|0.1878306878306878|
-|False Positive Rate    | 0.2774869109947644|0.2774869109947644|
-|Precision              | 0.7633928571428571|0.7612612612612613|
-|AUC Score              | 0.8184757958395162|0.8131282022566285|
+|                         | Built-in | Our code |
+| ----------------------- | -------- | -------- |
+| Classification Accuracy | 0.799    | 0.812    |
+| False Positive Rate     | 0.236    | 0.187    |
+| Precision               | 0.799    | 0.761    |
+| AUC score               | 0.874    | 0.813    |
 
 
 ### 3. Decision Tree classifier
@@ -202,29 +233,21 @@ This method consists in the following steps:
 The resulting predictions are then stacked and provided as input data to the second-level classifier. After the training of the StackingCVClassifier, the first-level classifiers are fit to the entire dataset.
 
 
-## Model Evaluation and Parameter Tuning
-After building the predictive classification models, it's time to evaluate the performances of them.
-
-For this purpose we used some common metrics and methods for assessing the performance of predictive classification models, including:
-* **Classification accuracy:** percentage of the correct predictions;
-* **Null accuracy:** accuracy that could be achieved by always predicting the most frequent class;
-* **Confusion matrix:** Table of size 2x2 that describes the performance of a classification model. It's used in order to determine how many observations were correctly or incorrectly classified and it works comparing the observed and the predicted outcome values and showing the number of correct and incorrect predictions categorized by type of outcome. The diagonal elements of the confusion matrix indicate correct predictions, while the off-diagonals represent incorrect predictions; hence the correct classification rate is the sum of the number on the diagonal divided by the sample size in the test data;
-* **False Positive Rate** represents the proportion of identified positives among the healthy individuals (i.e. "illness-negative"). It is calculated as ```1-TrueNegatives/(TrueNegatives + FalseNegatives)```;
-* **Precision of Positive value**: is the proportion of true positives among all the individuals that have been predicted to be "illness-positive" by the model. This represents the accuracy of a predicted positive outcome and is computed as: ```Precision = TruePositives/(TruePositives + FalsePositives)``` ;
-* **ROC curve**: is one of the most used graphical measure for assessing the performance or the accuracy of a classifier, which corresponds to the total proportion of correctly classified observations;
-* **AUC**: is the percentage of the ROC plot that is underneath the curve, it summarizes the overall performance of the classifier, over all possible probability cutoffs. The metric used are:
-    - .90-1 = excellent (A)
-    - .80-.90 = good (B)
-    - .70-.80 = fair (C)
-    - .60-.70 = poor (D)
-    - .50-.60 = fail (F)
-* **Probability plots**: for each method we plot the histogram of the predicted probabilities for class 1. We obtain this information by using the ```method model.predict_proba(X_test)[:, 1]``` where the index refers to the probability that the data belong to class 1 (that means 'treatment yes').
-
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Results
+## Conclusions
 
 #### Features selection
+
+Here we provide the comparison among the three different methods used for features selection. We the results obtained with different optimazion models.
+In the first graph we see the results we obtained when using all the features available in the dataset. 
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/comparison_all.png">
+As we can notice, when we use all the features for the classification, algorithms perform differently mainly depending on whether do hyperparameters tuning or not. In fact when tuning is not applied, the accuracy perfomance ranking of the algorithms is: Random forest, Logistic Regression, KNN and Tree Clssifier. On the other hand, we can notice how this ranking changes when we tune the hyperparameters, in fact now we obtain a more homogeneous set of accuracy results. \
+Now we select only those features that have a correlation coefficient greater than 0.1 with our parameter of interest (treatment). In this case we can notice that the predition is overall more accurate than before. Morever it is quite striking how also the ranking changes: first of all the performances are more homogeneous among all the algorithms and optimization methods; secondly we can notice how the best performing algoirithms are always the random forest and the tree classifier.
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/comparison_correlated.png">
+At the end of the analysis we also try to selct the same number of parameters as in the previous case (six features) but in a random way. We want to proove that in general it is not a good approach. 
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/comparison_random.png">
+It's evident how in this case performances drop from a range of 80-90 % to 55-60 %. Furthermore we can see a similar behaviour in algorithms ranking as in the first case of features selection. 
 
 #### Methods
 
@@ -232,4 +255,3 @@ For this purpose we used some common metrics and methods for assessing the perfo
 
 #### Cross validation
 
-## Conclusions
