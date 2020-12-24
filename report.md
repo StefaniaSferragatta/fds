@@ -242,9 +242,14 @@ The resulting predictions are then stacked and provided as input data to the sec
 Here we provide the comparison among the three different methods used for features selection. We the results obtained with different optimazion models.
 In the first graph we see the results we obtained when using all the features available in the dataset. 
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/comparisons_all.png">
-As we can notice, when we use all the features for the classification, algorithms perform differently mainly depending on whether do hyperparameters tuning or not. In fact when tuning is not applied, the accuracy perfomance ranking of the algorithms is: Random forest, Logistic Regression, KNN and Tree Clssifier. On the other hand, we can notice how this ranking changes when we tune the hyperparameters, in fact now we obtain a more homogeneous set of accuracy results. \
-Now we select only those features that have a correlation coefficient greater than 0.1 with our parameter of interest (treatment). In this case we can notice that the predition is overall more accurate than before. Morever it is quite striking how also the ranking changes: first of all the performances are more homogeneous among all the algorithms and optimization methods; secondly we can notice how the best performing algoirithms are always the random forest and the tree classifier.
+As we can notice, when we use all the features for the classification, algorithms perform differently mainly depending on whether do hyperparameters tuning or not. In fact when tuning is not applied, the accuracy perfomance ranking of the algorithms is: Random forest, Logistic Regression, KNN and Tree Clssifier. On the other hand, we can notice how this ranking changes when we tune the hyperparameters, in fact now we obtain a more homogeneous set of accuracy results.
+
+
+Now we select only those features that have a correlation coefficient greater than 0.1 with our parameter of interest (treatment). 
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/comparisons_corr.png">
+In this case we can notice that the predition is overall more accurate than before. Morever it is quite striking how also the ranking changes: first of all the performances are more homogeneous among all the algorithms and optimization methods; secondly we can notice how the best performing algoirithms are always the random forest and the tree classifier.
+
+
 At the end of the analysis we also try to selct the same number of parameters as in the previous case (six features) but in a random way. We want to proove that in general it is not a good approach. 
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/comparisons_random.png">
 It's evident how in this case performances drop from a range of 80-90 % to 55-60 %. Furthermore we can see a similar behaviour in algorithms ranking as in the first case of features selection. 
