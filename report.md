@@ -270,10 +270,12 @@ It's evident how in this case performances drop from a range of 80-90 % to 55-60
 
 ## Conclusions
 
-In conclusion, an existing kaggle project has been analyzed and improved as the final project of the Foundations of Data Science course. The project aims to predict whether a patient should be treated for his/her mental illness or not according to the values obtained in the dataset. Firstly, the data has been preprocessed and split into two parts as train and test data. Secondly, the machine learning classification models such as Logistic Regression, Random Forest, etc. have been described briefly. Then, the models have been evaluated with the author's application. For the analysis part, the KNN and Logistic Regression models that have been covered during the course were applied from scratch and the accuracy results were compared. Lastly, to have a deep understanding of the classification models and increase the accuracy, one of the most well-known hyperparameter optimization methods, the Grid search CV has been applied and the accuracy compared with the author's random search and cross-validation methods.
-
-Brownlee, J. (2020, August 27). Tune Hyperparameters for Classification Machine Learning Algorithms. Retrieved December 24, 2020, from https://machinelearningmastery.com/hyperparameters-for-classification-machine-learning-algorithms/
-
-Schneider, J. (1997). Retrieved December 24, 2020, from https://www.cs.cmu.edu/~schneide/tut5/node42.html
+In conclusion, an existing kaggle project has been analyzed and improved as the final project of the Foundations of Data Science course. The project aims to predict whether a patient should be treated for his/her mental illness or not according to the values obtained in the dataset. Firstly, the data has been preprocessed and split into two parts as train and test data. Secondly, the machine learning classification models such as Logistic Regression, Random Forest, etc. have been described briefly. Then, the models have been evaluated with the author's application. For the analysis part, the Logistic Regression model that we have been covered during the course wes applied from scratch together with the KNN Classification model, and the accuracy results were compared. Lastly, in order to have a deep understanding of the classification models and to increase the accuracy, we choose to apply one of the most well-known hyperparameter optimization methods: the Grid search CV. Then we compared the accuracy with the author's random search and cross-validation methods.
 
 
+### Sources 
+    * Brownlee, J. (2020, August 27). Tune Hyperparameters for Classification Machine Learning Algorithms. Retrieved December 24, 2020, from https://machinelearningmastery.com/hyperparameters-for-classification-machine-learning-algorithms/
+
+    * Schneider, J. (1997). Retrieved December 24, 2020, from https://www.cs.cmu.edu/~schneide/tut5/node42.html
+    
+    * StackingClassifier - mlxtend, from http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier/
