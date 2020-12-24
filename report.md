@@ -59,13 +59,13 @@ This is how the raw dataset looked like:
 In order to evaluate how the number and the quality of the features influence the accuracy of the prediction we will try three different approaches:
 
 1. No selection: keep all features 
-
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_all.png">
 2. Random selection: randomly select some of the features 
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_random.png">
+3. Selection based on correlation matrix: select features above a certain correlation coefficient with the parameter of interest (treatment).
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_corr.png">
 
-3. Selection based on correlation matrix: select features above a certain correlation coefficient with the parameter of interest (treatment). We report the correlation matrix down below.
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/corr_matrix.png">
-
-We will repeat the analysis for all these three set of features and compare them.
+We will repeat the analysis for all these three sets of features and compare them.
 
 #### Test and Training
 The aouthor chose the classical approach of splitting X (parameters) and y (binary prediciton vector) into training and testing sets selecting at random the 30% of the rows and assigning them to the test set. The remaining number of rows will be used for training.
