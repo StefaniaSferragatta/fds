@@ -258,5 +258,7 @@ It's evident how in this case performances drop from a range of 80-90 % to 55-60
 
 #### Tuning
 
+The author has applied the 
+
 #### Cross validation
 
