@@ -258,7 +258,18 @@ It's evident how in this case performances drop from a range of 80-90 % to 55-60
 
 #### Tuning
 
-The author has applied the 
+The auther has applied a randomized search for models' parameters tuning. This approach returns better accuracy while it is not the best for tuning. 
 
 #### Cross validation
+
+Cross validation is a model evaluation method that is better than residuals. The problem with residual evaluations is that they do not give an indication of how well the learner will do when it is asked to make new predictions for data it has not already seen. One way to overcome this problem is to not use the entire data set when training a learner. Some of the data is removed before training begins. Then when training is done, the data that was removed can be used to test the performance of the learned model on new data. This is the basic idea for a whole class of model evaluation methods called cross validation (Schneider, 1997). The author has applied cross validation to each classification model. The accuracy of models are significantly better than randomized search but not as good as grid search CV.
+
+#### Grid Search CV
+
+Machine learning algorithms have hyperparameters that allow you to tailor the behavior of the algorithm to your specific dataset. Hyperparameters are different from parameters, which are the internal coefficients or weights for a model found by the learning algorithm. Unlike parameters, hyperparameters are specified by the practitioner when configuring the model. Typically, it is challenging to know what values to use for the hyperparameters of a given algorithm on a given dataset, therefore it is common to use random or grid search strategies for different hyperparameter values. The more hyperparameters of an algorithm that you need to tune, the slower the tuning process. Therefore, it is desirable to select a minimum subset of model hyperparameters to search or tune. Not all model hyperparameters are equally important. Some hyperparameters have an outsized effect on the behavior, and in turn, the performance of a machine learning algorithm (Jason, 2019). To make sure that we are improving the accuracy, we thought hyperparameter tuning and cross-validation together is better to apply. Therefore, we have decided to apply grid search CV. On the returns, we have seen that the accuracy increased not suprisingly. The grid search CV has been applied to Logistic Regression, KNN, Decision Tree Classifier and Random Forest methods. 
+
+Brownlee, J. (2020, August 27). Tune Hyperparameters for Classification Machine Learning Algorithms. Retrieved December 24, 2020, from https://machinelearningmastery.com/hyperparameters-for-classification-machine-learning-algorithms/
+
+Schneider, J. (1997). Retrieved December 24, 2020, from https://www.cs.cmu.edu/~schneide/tut5/node42.html
+
 
