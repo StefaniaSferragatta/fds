@@ -172,12 +172,17 @@ By using this method we select root node, We will use gini as of now to show pro
     b) min_sample_leaf- The minimum number of samples required to be at a leaf node.
     etc..
 
-I this method we tuned the parameters by GridsearchCv from sklearn
+I this method we tuned the parameters by GridsearchCv from sklearn, You can see from the figure descision tree we created.
+
 <img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Descison_Tree.png">
 
 #### Parameters
 
-> Parameters explanation here
+The parameter we used,
+    a) criterion : gini, entropy
+    b) min_samples_split: Minimum number of sample to split node
+     you can check more parameters available for descision tree on mentioned link
+    https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
 
 ### 4. Random Forest classifier
 
