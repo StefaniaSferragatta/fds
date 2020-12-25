@@ -178,10 +178,14 @@ In this method we tuned the parameters by GridsearchCv from sklearn, You can see
 #### Parameters
 
 The parameter that has been tuned by GridsearchCV,
+
     a) criterion : gini, entropy
+    
     b) max_depth : [2,8]
+    
     c) min_sample_leaf : [2,8]
-    d) min_samples_split : [2,8]    
+    
+    d) min_samples_split : [2,8] 
     
 
 ### 4. Random Forest classifier
@@ -202,10 +206,15 @@ In this method we have used the same method that author applied but we have impr
 #### Parameters
 
 The parameter that has been tuned by GridsearchCV,
+
     a) criterion : gini, entropy
+    
     b) max_depth : [2,8]
+    
     c) min_sample_leaf : [2,8]
+    
     d) min_samples_split : [2,8]
+    
     e) n_estimator : 20
 
 ## Ensemble methods 
