@@ -161,10 +161,7 @@ So how to made descion tree ?
 We can follow these steps to make it happen
 ##### 1. Decide the feature for root node.
 
-There are ways to major impurity out of those one is **gini** and other is **enropy**
-By using this method we select root node, We will use gini as of now to show procedure
-       Each root node has 2 leaf node, We calculate gini for each leaf node and then calculate weighted average of gini of what we have just calculated. 
-       In this way we calculate weighted average for each feature and selects having lowest impurity(weighted average).
+There are ways to major impurity out of those one is **gini** and other is **enropy**. By using this method we select root node. We will use gini as of now to show procedure. Each root node has 2 leaf node. We have calculated gini for each leaf node and then the weighted average of gini. In this way we calculate weighted average for each feature and selects having lowest impurity(weighted average).
               
 ##### 2. Selection on next feature to take descision
 
@@ -174,17 +171,18 @@ By using this method we select root node, We will use gini as of now to show pro
     b) min_sample_leaf- The minimum number of samples required to be at a leaf node.
     etc..
 
-I this method we tuned the parameters by GridsearchCv from sklearn, You can see from the figure descision tree we created.
+In this method we tuned the parameters by GridsearchCv from sklearn, You can see from the figure descision tree that has been created.
 
 <img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Descison_Tree.png">
 
 #### Parameters
 
-The parameter we used,
+The parameter that has been tuned by GridsearchCV,
     a) criterion : gini, entropy
-    b) min_samples_split: Minimum number of sample to split node
-     you can check more parameters available for descision tree on mentioned link
-    https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+    b) max_depth : [2,8]
+    c) min_sample_leaf : [2,8]
+    d) min_samples_split : [2,8]    
+    
 
 ### 4. Random Forest classifier
 
@@ -199,11 +197,16 @@ The algorithm works in four steps:
 
 <img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF3.png">
 
-In this method we have used the same method that author applied but we have improved the result with parameter tuning since the author was generating the result with random parameter. We have applied the 
+In this method we have used the same method that author applied but we have improved the result with hyperparameters tuning since the author was generating the result with random parameter. The accuracy improvement will be compared in improvements and comparisons section. 
 
 #### Parameters
 
-> Parameters explanation here
+The parameter that has been tuned by GridsearchCV,
+    a) criterion : gini, entropy
+    b) max_depth : [2,8]
+    c) min_sample_leaf : [2,8]
+    d) min_samples_split : [2,8]
+    e) n_estimator : 20
 
 ## Ensemble methods 
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
