@@ -155,6 +155,7 @@ As for logistic regression we implemented this function by ourself, we review th
 We are implementing descision tree in daily life, We take into consideration of criteria then go take some descision.
 AThe Descision tree mentioned below is simple example in daily life and we have conclusion from tree that if we go out without mask then there are chances to be infected by covid19.
 <img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Sample_descision_tree.PNG">
+
 So how to made descion tree ?
 We can follow these steps to make it happen
 ##### 1. Decide the feature for root node.
