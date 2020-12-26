@@ -221,16 +221,22 @@ The parameter that has been tuned by GridsearchCV,
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
 ### 1. Bagging 
-Bootstrap Aggregation (Bagging), is a simple and very powerful ensemble method. Bagging methods form a class of algorithms which build several instances of a black-box estimator on random subsets of the original training set and then aggregate their individual predictions to form a final prediction. These methods come in many flavours but mostly differ from each other by the way they draw random subsets of the training set, when samples are drawn with replacement. \
-Bagging offers the advantage of combining weak learners to to outdo a single strong learner. It also helps in the reduction of variance, hence eliminating the over-fitting of models in the procedure. If the base models trained on different samples have high variance (over-fitting), then the aggregated result would even it out thereby reducing the variance. This technique is chosen when the base models have high variance and low bias which is generally the case with models having high degrees of freedom for complex data. As they provide a way to reduce over-fitting, bagging methods work best with strong and complex models (e.g., fully developed decision trees), in contrast with boosting methods which usually work best with weak models (e.g., shallow decision trees). \
+Bootstrap Aggregation (Bagging), is an ensemble method. The main idea behind bagging methods is to combine weak learners to outdo a single strong learner. Bagging method use the Here a general outline of how the algorithm works: 
+1. Consider a certain number of weak learners. 
+2.  
+(**COMPLETE ABOVE**)
+
 
 ![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
-#### Parameters
-- Bootstrap Replicates: the original article for bagging reports that "we are getting most of the improvement using only 10 bootstrap replicates. More than 25 bootstrap replicates is love’s labor lost". We can hence assume that 10 replicates is a fair compromise between accuracy and efficiency.
-- Learning set size: the same article we just mentioned suggests to use a size for the learning set as big as the initial learning set.
+
+We tuned just one hyperparameter of the bagging method, namely the `n_estimators`. As we can see in the graph below accuracy changes drastically when we consider different number of base estimators.
+
+#### Our implementation
+
+Due to the stochastic nature of the algorithm, we decided to test the algorithm on different number of trees many times and then taking 
  
 ### 2. Boosting 
 
