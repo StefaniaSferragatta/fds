@@ -259,8 +259,12 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
 Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
 
 The outline of the algorithm is as follows: 
-1. Define a weight distribution $D_i^j$ over the training instances. 
-2. 
+1. Define a weight distribution `D_1[i]` over the training instances 
+2. Build a model `h_1` from the training set using the weight distribution `D_1`
+3. Update `D_2` from `D_1`:
+    a. Increase weights misclassified by `h_1`
+    b. Decrease weights correctly classified by `h_1`
+4. Repeat point 2. `M` times 
 
 #### Evaluaton
 
