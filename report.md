@@ -240,7 +240,7 @@ Bootstrap Aggregation (Bagging) is an ensemble method. The main idea behind bagg
 (**COMPLETE ABOVE**)
 
 
-![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg width="500"/)
+![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
@@ -304,7 +304,7 @@ As in the section before, we analyzed the hyperparameters of the method where th
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
 
 
-![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png width="700"/)
+![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png)
 
 The image above summarises the process: 
 * Firstly the individual classification models are trained based on the given training set; 
@@ -326,7 +326,7 @@ Here we report the results obtained for this algorithm in the original version o
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
 
-![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png width="700"/)
+![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png)
 
 This method consists in the following steps:
 1. The dataset is split into k folds;
