@@ -231,12 +231,29 @@ Bootstrap Aggregation (Bagging), is an ensemble method. The main idea behind bag
 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
+#### Evaluation
 
-We tuned just one hyperparameter of the bagging method, namely the `n_estimators`. As we can see in the graph below accuracy changes drastically when we consider different number of base estimators.
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
-#### Our implementation
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_cm.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_hp.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_roc.jpg">
 
-Due to the stochastic nature of the algorithm, we decided to test the algorithm on different number of trees many times and then taking 
+
+#### Our refinements 
+
+The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes drastically when we consider different number of base estimators.
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/accuracy_score.jpg">
+
+Due to the stochastic nature of this method there is no fixed value that maximizes the accuracy, therefore we have decided to test the algorithm on different number of trees many times and then taking the average of the number of trees who score highest accuracy at each iteration. As we can see in the table below thanks to our refinements we were able to improve the author's results.  
+
+|                         | Author's code | Our code |
+| ----------------------- | -------- | -------- |
+| Classification Accuracy | 0.78    | 0.788    |
+| False Positive Rate     | 0.283    | 0.283    |
+| Precision               | 0.745    | 0.749    |
+| AUC score               | 0.781    | 0.789    |
  
 ### 2. Boosting 
 
