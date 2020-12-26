@@ -59,11 +59,11 @@ This is how the raw dataset looked like:
 In order to evaluate how the number and the quality of the features influence the accuracy of the prediction we will try three different approaches:
 
 1. No selection: keep all features 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_all.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_all.png" width="700"/>
 2. Random selection: randomly select some of the features 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_random.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_random.png" width="700"/>
 3. Selection based on correlation matrix: select features above a certain correlation coefficient with the parameter of interest (treatment).
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_corr.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/features_corr.png" width="700"/>
 
 We will repeat the analysis for all these three sets of features and compare them.
 
@@ -100,9 +100,9 @@ This algorithm takes many hyperparameters in input here we list the ones we test
 #### Evaluation
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_cm.png" width="400"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_hp.png" width="400"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_roc.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_roc.png" width="300"/>
 
 #### Our implementation
 Additionally we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
@@ -123,7 +123,7 @@ The k-Nearest Neighbors is an algorithm that works on the entire training datase
 
 In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
  - `k`: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15 as it is shown in the graph below.
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn.png" width="600"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn.png" width="400"/>
 
  - `weight_options`: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
  - `distance_options`: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
@@ -131,9 +131,9 @@ In order to tune the hyperparameters for the KNN built-in function the parameter
 #### Evaluation
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_cm.png" width="400"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_hp.png" width="400"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_roc.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_roc.png" width="300"/>
  
 #### Our implementation
 As for logistic regression we implemented this function by ourself, we review the main steps:
@@ -177,10 +177,10 @@ In this method we tuned the parameters by GridsearchCv from sklearn, You can see
 
 #### Evaluation 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_roc.png" width="300"/>
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_cm.png" width="400"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_hp.png" width="400"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_roc.png" width="400"/>
 #### Parameters
 
 The parameter that has been tuned by GridsearchCV,
@@ -212,7 +212,6 @@ In this method we have used the same method that author applied but we have impr
 #### Evaluation
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_cm.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_roc.png" width="300"/>
@@ -241,18 +240,16 @@ Bootstrap Aggregation (Bagging) is an ensemble method. The main idea behind bagg
 (**COMPLETE ABOVE**)
 
 
-![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg width="600"/)
+![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg width="500"/)
 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
 #### Evaluation
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_cm.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_roc.png" width="300"/>
-
 
 #### Our refinements 
 
@@ -288,13 +285,9 @@ The image below illustrates the method.
 
 #### Evaluation
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-
-
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_cm.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_hp.png" width="300"/>
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_ROC.png" width="300"/>
-
-
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_roc.png" width="300"/>
 
 #### Our Refinements
 As in the section before, we analyzed the hyperparameters of the method where the author used default values, in order to improve the accuracy of the method. The two parameters we looked at are the: `n_estimators` and the `learning_rate`. We used `GridSearchCV` (look below for more details about this algorithm) to tune these two hyperparameters. 
@@ -325,7 +318,6 @@ As classification models to fit, the author chose the KNeighborsClassifier and t
 
 #### Evaluation
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_cm.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_roc.png" width="300"/>
