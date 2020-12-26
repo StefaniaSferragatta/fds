@@ -110,12 +110,12 @@ First of all we adapt the training set to the required input format, then we add
 In order to obtain our final prediction, we want to classify each sample according to the log likelihood obtained with the product of the theta final vector and each sample features. We assume that if the log-likelihood is greater or equal than 0.5, then we classify one sample as "treatment yes", otherwise "treatment no". 
 For comparison purposes, we applied the same evaluation methods that the author provide in the "evalModelClass" to our model.  As we can see in the table above, the model produced by our code has an accuracy of 0.74. In general our code performed a bit worse than the built in function in all the evaluation methods. 
 
-|                         | Built-in | Our code |
-| ----------------------- | -------- | -------- |
-| Classification Accuracy | 0.794    | 0.743    |
-| False Positive Rate     | 0.262    | 0.293    |
-| Precision               | 0.761    | 0.743    |
-| AUC score               | 0.794    | 0.743    |
+|                         | Built-in | Our code | Optimized |
+| ----------------------- | -------- | -------- | --------- |
+| Classification Accuracy | 0.794    | 0.743    | 0.874     |
+| False Positive Rate     | 0.262    | 0.293    | 0.262     |
+| Precision               | 0.761    | 0.743    | 0.763     |
+| AUC score               | 0.794    | 0.743    | 0.800     |
 
 
 ### 2. KNeighbors classifier
@@ -142,12 +142,12 @@ As for logistic regression we implemented this function by ourself, we review th
 3. We sort all of the records in the training dataset by their distance to the new row;
 4. We select the top k to return as the most similar neighbors. In the case of classification, we can return the most represented class among the neighbors.
 
-|                         | Built-in | Our code |
-| ----------------------- | -------- | -------- |
-| Classification Accuracy | 0.799    | 0.812    |
-| False Positive Rate     | 0.236    | 0.187    |
-| Precision               | 0.799    | 0.761    |
-| AUC score               | 0.874    | 0.813    |
+|                         | Built-in | Our code | Optimized |
+| ----------------------- | -------- | -------- | --------- |
+| Classification Accuracy | 0.799    | 0.812    | 0.887     |
+| False Positive Rate     | 0.236    | 0.187    | 0.262     |
+| Precision               | 0.799    | 0.761    | 0.775     |
+| AUC score               | 0.874    | 0.813    | 0.829     |
 
 
 ### 3. Decision Tree classifier
@@ -261,7 +261,7 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
 
 |                         | Author's code | Optimized |
 | ----------------------- | -------- | -------- |
-| Classification Accuracy | 0.78    | 0.788    |
+| Classification Accuracy | 0.780    | 0.788    |
 | False Positive Rate     | 0.283    | 0.283    |
 | Precision               | 0.745    | 0.749    |
 | AUC score               | 0.781    | 0.789    |
@@ -282,22 +282,21 @@ The image below illustrates the method.
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_algo.png" width="700"/>
 
 
-
 #### Evaluation
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_cm.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_roc.png" width="300"/>
 
-#### Our Refinements
+#### Parameters
 As in the section before, we analyzed the hyperparameters of the method where the author used default values, in order to improve the accuracy of the method. The two parameters we looked at are the: `n_estimators` and the `learning_rate`. We used `GridSearchCV` (look below for more details about this algorithm) to tune these two hyperparameters. 
 
 |                         | Author's code | Optimized |
 | ----------------------- | -------- | -------- |
-| Classification Accuracy | 0.77    | 0.778    |
+| Classification Accuracy | 0.770    | 0.778    |
 | False Positive Rate     | 0.325    | 0.309    |
 | Precision               | 0.723    | 0.733    |
-| AUC score               | 0.771   | 0.833    |
+| AUC score               | 0.771    | 0.833    |
 
 
 
@@ -322,14 +321,12 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_roc.png" width="300"/>
 
-#### Our Refinements
+#### Parameters
 
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
 
-
 ![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png width="700"/)
-
 
 This method consists in the following steps:
 1. The dataset is split into k folds;
@@ -337,8 +334,6 @@ This method consists in the following steps:
 3. In each round, the first-level classifiers are then applied to the remaining 1 subset that was not used for model fitting in each iteration.
 
 The resulting predictions are then stacked and provided as input data to the second-level classifier. After the training of the StackingCVClassifier, the first-level classifiers are fit to the entire dataset.
-
-
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Improvements and Comparisons
