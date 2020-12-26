@@ -256,7 +256,7 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
 | AUC score               | 0.781    | 0.789    |
  
 ### 2. Boosting 
-Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
+Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. In particular the author decided to use the `AdaBoosting`. algorithm as boosting method. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
 
 The outline of the algorithm is as follows: 
 1. Define a weight distribution `D_1[i]` over the training instances 
@@ -270,10 +270,28 @@ The image below illustrates the method.
 
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_algo.png">
 
+
+
 #### Evaluaton
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_cm.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_hp.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_ROC.jpg">
+
+
 
 #### Our Refinements
 As in the section before, we analyzed the hyperparameters of the method where the author used default values, in order to improve the accuracy of the method. The two parameters we looked at are the: `n_estimators` and the `learning_rate`. We used `GridSearchCV` (look below for more details about this algorithm) to tune these two hyperparameters. 
+
+|                         | Author's code | Our code |
+| ----------------------- | -------- | -------- |
+| Classification Accuracy | 0.77    | 0.778    |
+| False Positive Rate     | 0.325    | 0.309    |
+| Precision               | 0.723    | 0.733    |
+| AUC score               | 0.771   | 0.833    |
+
 
 
 ### 3. Stacking
