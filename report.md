@@ -221,24 +221,78 @@ The parameter that has been tuned by GridsearchCV,
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
 ### 1. Bagging 
-Bootstrap Aggregation (Bagging), is a simple and very powerful ensemble method. Bagging methods form a class of algorithms which build several instances of a black-box estimator on random subsets of the original training set and then aggregate their individual predictions to form a final prediction. These methods come in many flavours but mostly differ from each other by the way they draw random subsets of the training set, when samples are drawn with replacement. \
-Bagging offers the advantage of combining weak learners to to outdo a single strong learner. It also helps in the reduction of variance, hence eliminating the over-fitting of models in the procedure. If the base models trained on different samples have high variance (over-fitting), then the aggregated result would even it out thereby reducing the variance. This technique is chosen when the base models have high variance and low bias which is generally the case with models having high degrees of freedom for complex data. As they provide a way to reduce over-fitting, bagging methods work best with strong and complex models (e.g., fully developed decision trees), in contrast with boosting methods which usually work best with weak models (e.g., shallow decision trees). \
+Bootstrap Aggregation (Bagging) is an ensemble method. The main idea behind bagging methods is to combine weak learners to outdo a single strong learner. Bagging method use the Here a general outline of how the algorithm works: 
+1. Consider a certain number of weak learners. 
+2.  
+(**COMPLETE ABOVE**)
+
 
 ![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
-#### Parameters
-- Bootstrap Replicates: the original article for bagging reports that "we are getting most of the improvement using only 10 bootstrap replicates. More than 25 bootstrap replicates is love’s labor lost". We can hence assume that 10 replicates is a fair compromise between accuracy and efficiency.
-- Learning set size: the same article we just mentioned suggests to use a size for the learning set as big as the initial learning set.
+#### Evaluation
+
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_cm.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_hp.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_roc.jpg">
+
+
+#### Our refinements 
+
+The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes considerably when we consider different number of base estimators.
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/accuracy_score.jpg">
+
+Due to the stochastic nature of this method there is no fixed value that maximizes the accuracy, therefore we have decided to test the algorithm on different number of trees many times and then taking the average of the number of trees who score highest accuracy at each iteration. As we can see in the table below thanks to our refinements we were able to improve the author's results.  
+
+|                         | Author's code | Our code |
+| ----------------------- | -------- | -------- |
+| Classification Accuracy | 0.78    | 0.788    |
+| False Positive Rate     | 0.283    | 0.283    |
+| Precision               | 0.745    | 0.749    |
+| AUC score               | 0.781    | 0.789    |
  
 ### 2. Boosting 
+Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. In particular the author decided to use the `AdaBoosting`. algorithm as boosting method. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
 
-> Documentation here
+The outline of the algorithm is as follows: 
+1. Define a weight distribution `D_1[i]` over the training instances 
+2. Build a model `h_1` from the training set using the weight distribution `D_1`
+3. Update `D_2` from `D_1`: <br/>
+    a. Increase weights misclassified by `h_1` <br/>
+    b. Decrease weights correctly classified by `h_1` <br/>
+4. Repeat point 2. `M` times 
 
-#### Parameters
+The image below illustrates the method. 
 
-> Parameters explanation here
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_algo.png">
+
+
+
+#### Evaluation
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_cm.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_hp.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_ROC.jpg">
+
+
+
+#### Our Refinements
+As in the section before, we analyzed the hyperparameters of the method where the author used default values, in order to improve the accuracy of the method. The two parameters we looked at are the: `n_estimators` and the `learning_rate`. We used `GridSearchCV` (look below for more details about this algorithm) to tune these two hyperparameters. 
+
+|                         | Author's code | Our code |
+| ----------------------- | -------- | -------- |
+| Classification Accuracy | 0.77    | 0.778    |
+| False Positive Rate     | 0.325    | 0.309    |
+| Precision               | 0.723    | 0.733    |
+| AUC score               | 0.771   | 0.833    |
+
+
 
 ### 3. Stacking
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
@@ -255,8 +309,14 @@ In this project the author chose the function from the library ```mlxtend.classi
 In order to use this function it's needed to define: the learners to fit and the meta-model that combines them. 
 As classification models to fit, the author chose the KNeighborsClassifier and the RandomForestClassifier whose predictions are combined by Logistic Regression as a meta-classifier. 
 
+#### Evaluation
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
-#### Stacking using Cross Validation 
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_cm.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_ROC.jpg">
+
+#### Our Refinements
 
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
