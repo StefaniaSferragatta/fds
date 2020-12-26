@@ -312,6 +312,10 @@ As classification models to fit, the author chose the KNeighborsClassifier and t
 #### Evaluation
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_cm.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_ROC.jpg">
+
 #### Our Refinements
 
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
