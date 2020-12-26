@@ -244,7 +244,7 @@ Here we report the results obtained for this algorithm in the original version o
 
 The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes considerably when we consider different number of base estimators.
 
-<img src=<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/accuracy_score.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/accuracy_score.jpg">
 
 Due to the stochastic nature of this method there is no fixed value that maximizes the accuracy, therefore we have decided to test the algorithm on different number of trees many times and then taking the average of the number of trees who score highest accuracy at each iteration. As we can see in the table below thanks to our refinements we were able to improve the author's results.  
 
@@ -272,7 +272,7 @@ The image below illustrates the method.
 
 
 
-#### Evaluaton
+#### Evaluation
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
 
@@ -309,8 +309,10 @@ In this project the author chose the function from the library ```mlxtend.classi
 In order to use this function it's needed to define: the learners to fit and the meta-model that combines them. 
 As classification models to fit, the author chose the KNeighborsClassifier and the RandomForestClassifier whose predictions are combined by Logistic Regression as a meta-classifier. 
 
+#### Evaluation
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
-#### Stacking using Cross Validation 
+#### Our Refinements
 
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
