@@ -256,7 +256,11 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
 | AUC score               | 0.781    | 0.789    |
  
 ### 2. Boosting 
+Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
 
+The outline of the algorithm is as follows: 
+1. Define a weight distribution $D_i^j$ over the training instances. 
+2. 
 
 #### Evaluaton
 
