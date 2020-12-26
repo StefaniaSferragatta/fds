@@ -244,7 +244,7 @@ Here we report the results obtained for this algorithm in the original version o
 
 The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes considerably when we consider different number of base estimators.
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/accuracy_score.jpg">
+<img src=<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/accuracy_score.jpg">
 
 Due to the stochastic nature of this method there is no fixed value that maximizes the accuracy, therefore we have decided to test the algorithm on different number of trees many times and then taking the average of the number of trees who score highest accuracy at each iteration. As we can see in the table below thanks to our refinements we were able to improve the author's results.  
 
