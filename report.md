@@ -221,7 +221,7 @@ The parameter that has been tuned by GridsearchCV,
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
 ### 1. Bagging 
-Bootstrap Aggregation (Bagging), is an ensemble method. The main idea behind bagging methods is to combine weak learners to outdo a single strong learner. Bagging method use the Here a general outline of how the algorithm works: 
+Bootstrap Aggregation (Bagging) is an ensemble method. The main idea behind bagging methods is to combine weak learners to outdo a single strong learner. Bagging method use the Here a general outline of how the algorithm works: 
 1. Consider a certain number of weak learners. 
 2.  
 (**COMPLETE ABOVE**)
@@ -257,11 +257,11 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
  
 ### 2. Boosting 
 
-> Documentation here
 
-#### Parameters
+#### Evaluaton
 
-> Parameters explanation here
+
+#### Our Refinements
 
 ### 3. Stacking
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
