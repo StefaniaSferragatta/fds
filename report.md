@@ -242,7 +242,7 @@ Here we report the results obtained for this algorithm in the original version o
 
 #### Our refinements 
 
-The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes drastically when we consider different number of base estimators.
+The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes considerably when we consider different number of base estimators.
 
 <img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/accuracy_score.jpg">
 
@@ -261,15 +261,20 @@ Boosting is another family of ensemble methods whose main goal is to transform w
 The outline of the algorithm is as follows: 
 1. Define a weight distribution `D_1[i]` over the training instances 
 2. Build a model `h_1` from the training set using the weight distribution `D_1`
-3. Update `D_2` from `D_1`:
-    a. Increase weights misclassified by `h_1`
-    b. Decrease weights correctly classified by `h_1`
+3. Update `D_2` from `D_1`: <br/>
+    a. Increase weights misclassified by `h_1` <br/>
+    b. Decrease weights correctly classified by `h_1` <br/>
 4. Repeat point 2. `M` times 
+
+The image below illustrates the method. 
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_algo.png">
 
 #### Evaluaton
 
-
 #### Our Refinements
+As in the section before, we analyzed the hyperparameters of the method where the author used default values, in order to improve the accuracy of the method. The two parameters we looked at are the: `n_estimators` and the `learning_rate`. We used `GridSearchCV` (look below for more details about this algorithm) to tune these two hyperparameters. 
+
 
 ### 3. Stacking
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
