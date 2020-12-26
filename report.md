@@ -100,9 +100,9 @@ This algorithm takes many hyperparameters in input here we list the ones we test
 #### Evaluation
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/confusion_lr.png">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/probabilities_lr.png">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/roc_lr.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_cm.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_hp.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/lr_roc.png" width="400"/>
 
 #### Our implementation
 Additionally we provide our own version of the code for two main purposes: the first is to evaluate whether our implementation is suitable also for a greater number of features, secondly we want to compare the accuracy obtained with our model to that obtained with the built in function. The optimization algorithm we choose is the gradient ascent.
@@ -123,7 +123,7 @@ The k-Nearest Neighbors is an algorithm that works on the entire training datase
 
 In order to tune the hyperparameters for the KNN built-in function the parameters that we have considered are:
  - `k`: number of clusters. The optimal k from the author analysis was 21, but after our improovments the new optimal number of clusters in a range from 1 to 31 is 15 as it is shown in the graph below.
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn.png" width="600"/>
 
  - `weight_options`: according to our tuning the best option to weight the neighbors is the 'uniform' one, which does not assign more weight to more similar values.
  - `distance_options`: we add a new parameter in the tuning which estimates the type of distance that optimizes the predictions. According to our results the best one is the euclidean, that we have also used in our own implementation. 
@@ -131,9 +131,9 @@ In order to tune the hyperparameters for the KNN built-in function the parameter
 #### Evaluation
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/confusion_knn.png">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/probabilities_knn.png">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/roc_knn.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_cm.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_hp.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/knn_roc.png" width="400"/>
  
 #### Our implementation
 As for logistic regression we implemented this function by ourself, we review the main steps:
@@ -155,7 +155,7 @@ As for logistic regression we implemented this function by ourself, we review th
 We are implementing descision tree in daily life, We take into consideration of criteria then go take some descision.
 The Descision tree mentioned below is simple example in daily life and we have conclusion from tree that if we go out without mask then there are chances to be infected by covid19.
 
-<img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Sample_descision_tree.PNG">
+<img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Sample_descision_tree.PNG" >
 
 So how to made descion tree ?
 We can follow these steps to make it happen
@@ -173,8 +173,14 @@ There are ways to major impurity out of those one is **gini** and other is **enr
 
 In this method we tuned the parameters by GridsearchCv from sklearn, You can see from the figure descision tree that has been created.
 
-<img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Descison_Tree.png">
+<img src ="https://github.com/martinabetti-97/fds/blob/main/imgs/Descison_Tree.png" width="800"/>
 
+#### Evaluation 
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_cm.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_hp.png" width="400"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_roc.png" width="400"/>
 #### Parameters
 
 The parameter that has been tuned by GridsearchCV,
@@ -203,6 +209,14 @@ The algorithm works in four steps:
 
 In this method we have used the same method that author applied but we have improved the result with hyperparameters tuning since the author was generating the result with random parameter. The accuracy improvement will be compared in improvements and comparisons section. 
 
+#### Evaluation
+
+Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
+
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_roc.png" width="300"/>
+
 #### Parameters
 
 The parameter that has been tuned by GridsearchCV,
@@ -227,7 +241,7 @@ Bootstrap Aggregation (Bagging) is an ensemble method. The main idea behind bagg
 (**COMPLETE ABOVE**)
 
 
-![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
+![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg width="600"/)
 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
@@ -235,9 +249,9 @@ The significant advantage of bagging is that it can be parallelised. As the diff
 
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_cm.jpg">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_hp.jpg">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boos_roc.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_roc.png" width="300"/>
 
 
 #### Our refinements 
@@ -248,7 +262,7 @@ The author decided to leave as `n_estimators = 10` (the default number). We have
 
 Due to the stochastic nature of this method there is no fixed value that maximizes the accuracy, therefore we have decided to test the algorithm on different number of trees many times and then taking the average of the number of trees who score highest accuracy at each iteration. As we can see in the table below thanks to our refinements we were able to improve the author's results.  
 
-|                         | Author's code | Our code |
+|                         | Author's code | Optimized |
 | ----------------------- | -------- | -------- |
 | Classification Accuracy | 0.78    | 0.788    |
 | False Positive Rate     | 0.283    | 0.283    |
@@ -268,7 +282,7 @@ The outline of the algorithm is as follows:
 
 The image below illustrates the method. 
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_algo.png">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_algo.png" width="700"/>
 
 
 
@@ -276,16 +290,16 @@ The image below illustrates the method.
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_cm.jpg">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_hp.jpg">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_ROC.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/boost_ROC.png" width="300"/>
 
 
 
 #### Our Refinements
 As in the section before, we analyzed the hyperparameters of the method where the author used default values, in order to improve the accuracy of the method. The two parameters we looked at are the: `n_estimators` and the `learning_rate`. We used `GridSearchCV` (look below for more details about this algorithm) to tune these two hyperparameters. 
 
-|                         | Author's code | Our code |
+|                         | Author's code | Optimized |
 | ----------------------- | -------- | -------- |
 | Classification Accuracy | 0.77    | 0.778    |
 | False Positive Rate     | 0.325    | 0.309    |
@@ -298,7 +312,7 @@ As in the section before, we analyzed the hyperparameters of the method where th
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
 
 
-![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png)
+![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png width="700"/)
 
 The image above summarises the process: 
 * Firstly the individual classification models are trained based on the given training set; 
@@ -312,9 +326,9 @@ As classification models to fit, the author chose the KNeighborsClassifier and t
 #### Evaluation
 Here we report the results obtained for this algorithm in the original version of the analysis, when the hyperparameters were not optimized. For this evaluation we will use the methods defined in the section "Evaluation of the classification models".
 
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_cm.jpg">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.jpg">
-<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_ROC.jpg">
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_cm.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.png" width="300"/>
+<img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_roc.png" width="300"/>
 
 #### Our Refinements
 
@@ -322,7 +336,7 @@ We tried to improve the perfomarce of this last analysis usign the ```StackingCV
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
 
 
-![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png)
+![N|stackingCV](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier_files/stacking_cv_classification_overview.png width="700"/)
 
 
 This method consists in the following steps:
