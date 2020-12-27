@@ -203,7 +203,11 @@ The parameter that has been tuned by GridsearchCV,
 | Precision               | 0.742    | 0.742     |
 | AUC score               | 0.808    | 0.808     |
 
-### 4. Random Forest classifier
+
+## Ensemble methods 
+An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
+
+### 1. Random Forest classifier
 
 The Random Forest classifier technically is an ensemble method (based on the divide-and-conquer approach) of decision trees generated on a randomly split dataset. This collection of decision tree classifiers is also known as the forest. The individual decision trees are generated using an attribute selection indicator such as information gain, gain ratio, and Gini index for each attribute. Each tree depends on an independent random sample. In a classification problem, each tree votes and the most popular class is chosen as the final result. In the case of regression, the average of all the tree outputs is considered as the final result. It is simpler and more powerful compared to the other non-linear classification algorithms.
 
@@ -249,10 +253,10 @@ The parameter that has been tuned by GridsearchCV,
 | Precision               | 0.750    | 0.784     |
 | AUC score               | 0.813    | 0.840     |
 
-## Ensemble methods 
-An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
-### 1. Bagging 
+
+
+### 2. Bagging 
 Bootstrap Aggregation (Bagging) is very similar to random forests. In the sense that it follows the same steps in combining weak learners (constructing a model for each sample, performing a vote between the models and choosing the prediction with most votes). The main difference between the two is that while random forests use only a subset of the features to split a node in a tree, bagging uses all the features. 
 
 
@@ -283,7 +287,7 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
 | Precision               | 0.745    | 0.749    |
 | AUC score               | 0.781    | 0.789    |
  
-### 2. Boosting 
+### 3. Boosting 
 Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. In particular the author decided to use the `AdaBoosting`. algorithm as boosting method. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
 
 The outline of the algorithm is as follows: 
@@ -317,7 +321,7 @@ As in the section before, we analyzed the hyperparameters of the method where th
 
 
 
-### 3. Stacking
+### 4. Stacking
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
 
 
