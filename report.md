@@ -181,6 +181,14 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_roc.png" width="300"/>
 
+
+|                         | Author   | Optimized | 
+| ----------------------- | -------- | --------- |
+| Classification Accuracy | 0.807    | 0.898     |
+| False Positive Rate     | 0.319    | 0.319     |
+| Precision               | 0.742    | 0.742     |
+| AUC score               | 0.808    | 0.808     |
+
 #### Parameters
 
 The parameter that has been tuned by GridsearchCV,
@@ -215,6 +223,14 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_cm.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_roc.png" width="300"/>
+
+
+|                         | Author's | Optimized | 
+| ----------------------- | -------- | --------- |
+| Classification Accuracy | 0.812    | 0.897     |
+| False Positive Rate     | 0.304    | 0.251     |
+| Precision               | 0.750    | 0.784     |
+| AUC score               | 0.813    | 0.840     |
 
 #### Parameters
 
