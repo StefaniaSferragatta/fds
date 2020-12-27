@@ -216,7 +216,7 @@ The algorithm works in four steps:
 
 <img src="https://github.com/martinabetti-97/fds/blob/main/methods_documentation/images/pics/RF3.png">
 
-In this method we have used the same method that author applied but we have improved the result with hyperparameters tuning since the author was generating the result with random parameter. The accuracy improvement will be compared in improvements and comparisons section. 
+In this method we have used the same method that author applied but we have improved the result with hyperparameters tuning since the author was generating the result with random parameter. 
 
 #### Evaluation
 
@@ -253,14 +253,12 @@ The parameter that has been tuned by GridsearchCV,
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
 
 ### 1. Bagging 
-Bootstrap Aggregation (Bagging) is an ensemble method. The main idea behind bagging methods is to combine weak learners to outdo a single strong learner. Bagging method use the Here a general outline of how the algorithm works: 
-1. Consider a certain number of weak learners. 
-2.  
-(**COMPLETE ABOVE**)
+Bootstrap Aggregation (Bagging) is very similar to random forests. In the sense that it follows the same steps in combining weak learners (constructing a model for each sample, performing a vote between the models and choosing the prediction with most votes). The main difference between the two is that while random forests use only a subset of the features to split a node in a tree, bagging uses all the features. 
 
 
 ![bagging](https://upload.wikimedia.org/wikipedia/commons/c/c8/Ensemble_Bagging.svg)
 
+This method is used when the base models have high variance and low bias which is generally the case with models having high degrees of freedom for complex data. As they provide a way to reduce over-fitting, bagging methods work best with strong and complex models (e.g., fully developed decision trees), in contrast with boosting methods (look below for more details about these methods) which usually work best with weak models (e.g., shallow decision trees). Decision trees are sensitive to the specific data on which they are trained. When bagging with decision trees, we are less concerned about individual trees over-fitting the training data. 
 The significant advantage of bagging is that it can be parallelised. As the different models are fitted independently from each other, intensive parallelisation techniques can be used if required. One the other hand one disadvantage of bagging is that it introduces a loss of interpretability of a model. The resultant model can experience lots of bias when the proper procedure is ignored. Despite bagging being highly accurate, it can be computationally expensive and this may discourage its use in certain instances.
 
 #### Evaluation
