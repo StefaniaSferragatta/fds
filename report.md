@@ -196,7 +196,7 @@ The parameter that has been tuned by GridsearchCV,
     d) min_samples_split : [2,8] 
     
 
-|                         | Author   | Optimized | 
+|                         | Author's | Optimized | 
 | ----------------------- | -------- | --------- |
 | Classification Accuracy | 0.807    | 0.898     |
 | False Positive Rate     | 0.319    | 0.319     |
