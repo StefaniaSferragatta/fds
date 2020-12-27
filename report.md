@@ -182,12 +182,6 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/tclass_roc.png" width="300"/>
 
 
-|                         | Author   | Optimized | 
-| ----------------------- | -------- | --------- |
-| Classification Accuracy | 0.807    | 0.898     |
-| False Positive Rate     | 0.319    | 0.319     |
-| Precision               | 0.742    | 0.742     |
-| AUC score               | 0.808    | 0.808     |
 
 #### Parameters
 
@@ -201,6 +195,13 @@ The parameter that has been tuned by GridsearchCV,
     
     d) min_samples_split : [2,8] 
     
+
+|                         | Author   | Optimized | 
+| ----------------------- | -------- | --------- |
+| Classification Accuracy | 0.807    | 0.898     |
+| False Positive Rate     | 0.319    | 0.319     |
+| Precision               | 0.742    | 0.742     |
+| AUC score               | 0.808    | 0.808     |
 
 ### 4. Random Forest classifier
 
@@ -225,12 +226,6 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/rforest_roc.png" width="300"/>
 
 
-|                         | Author's | Optimized | 
-| ----------------------- | -------- | --------- |
-| Classification Accuracy | 0.812    | 0.897     |
-| False Positive Rate     | 0.304    | 0.251     |
-| Precision               | 0.750    | 0.784     |
-| AUC score               | 0.813    | 0.840     |
 
 #### Parameters
 
@@ -245,6 +240,14 @@ The parameter that has been tuned by GridsearchCV,
     d) min_samples_split : [2,8]
     
     e) n_estimator : 20
+    
+
+|                         | Author's | Optimized | 
+| ----------------------- | -------- | --------- |
+| Classification Accuracy | 0.812    | 0.897     |
+| False Positive Rate     | 0.304    | 0.251     |
+| Precision               | 0.750    | 0.784     |
+| AUC score               | 0.813    | 0.840     |
 
 ## Ensemble methods 
 An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.
