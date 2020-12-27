@@ -324,10 +324,7 @@ As in the section before, we analyzed the hyperparameters of the method where th
 ### 4. Stacking
 The Stacking Classifier is an ensemble method that considers heterogeneous weak learners and combine them via a **meta-classifier** in order to improve predictions. So these output predictions are based on the multiple predictions returned by the combination of several machine learning models.
 
-
-![N|stacking](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingClassifier_files/stackingclassification_overview.png)
-
-The image above summarises the process: 
+The process is summarised in these steps: 
 * Firstly the individual classification models are trained based on the given training set; 
 * Secondly the meta-classifier is fitted based on the outputs (meta-features) of the individual classification models in the ensemble;
 * The output obtained at the end of the process is the final predicion.
