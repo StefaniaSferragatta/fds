@@ -314,10 +314,10 @@ As in the section before, we analyzed the hyperparameters of the method where th
 
 |                         | Author's code | Optimized |
 | ----------------------- | -------- | -------- |
-| Classification Accuracy | 0.770    | 0.778    |
-| False Positive Rate     | 0.325    | 0.309    |
-| Precision               | 0.723    | 0.733    |
-| AUC score               | 0.771    | 0.833    |
+| Classification Accuracy | 0.810    | 0.825    |
+| False Positive Rate     | 0.236    | 0.230    |
+| Precision               | 0.780    | 0.789    |
+| AUC score               | 0.810    | 0.826    |
 
 
 
