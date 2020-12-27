@@ -282,10 +282,10 @@ Due to the stochastic nature of this method there is no fixed value that maximiz
 
 |                         | Author's code | Optimized |
 | ----------------------- | -------- | -------- |
-| Classification Accuracy | 0.780    | 0.788    |
-| False Positive Rate     | 0.283    | 0.283    |
-| Precision               | 0.745    | 0.749    |
-| AUC score               | 0.781    | 0.789    |
+| Classification Accuracy | 0.780    | 0.817    |
+| False Positive Rate     | 0.283    | 0.236    |
+| Precision               | 0.745    | 0.784    |
+| AUC score               | 0.781    | 0.877    |
  
 ### 3. Boosting 
 Boosting is another family of ensemble methods whose main goal is to transform weak learners into strong learners. In particular the author decided to use the `AdaBoosting`. algorithm as boosting method. The main idea behind this method is building a model from the training data, then creating a second model that attempts to correct the errors from the first model, then creating a third model that attempts to correct the errors from the second model and so on.
@@ -339,7 +339,7 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_roc.png" width="300"/>
 
-#### Improvement
+#### Parameters
 
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
