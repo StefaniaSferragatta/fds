@@ -339,7 +339,7 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/stack_roc.png" width="300"/>
 
-#### Parameters
+#### Improvement
 
 We tried to improve the perfomarce of this last analysis usign the ```StackingCVClassifier``` from the same library.
 This is an ensemble-learning meta-classifier for stacking as well but it also uses cross-validation to prepare the inputs for the level-2 classifier in order to prevent overfitting. 
