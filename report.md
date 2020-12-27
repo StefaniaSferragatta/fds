@@ -272,7 +272,7 @@ Here we report the results obtained for this algorithm in the original version o
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_hp.png" width="300"/>
 <img src="https://github.com/martinabetti-97/fds/blob/main/imgs/bagg_roc.png" width="300"/>
 
-#### Our refinements 
+#### Parameters 
 
 The author decided to leave as `n_estimators = 10` (the default number). We have decided to analyze the choice of this parameter and we found, as we can see in the graph below, that accuracy changes considerably when we consider different number of base estimators.
 
